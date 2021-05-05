@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Anime Tracker Home</h1>
+  <p>Welcome to Anime Tracker, a website developed by <em>pingu</em>!</p>
+  <h2>Dynamic content</h2>
+  <p>The anime database has the following record counts:</p>
+  <ul>
+    <li><strong>Anime:</strong> {{ num_anime }}</li>
+    <li><strong>Seasonal anime:</strong> {{ num_seasonal_anime }}</li>
+    <li><strong>Studios:</strong> {{ num_studios }}</li>
+    <li><strong>Genres:</strong> {{ num_genres }}</li>
+  </ul>
+{% endblock %}

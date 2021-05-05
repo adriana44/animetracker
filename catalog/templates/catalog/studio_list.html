@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Studio List</h1>
+  {% if studio_list %}
+  <ul>
+    {% for studio in studio_list %}
+      <li>
+        <a href="{{ studio.get_absolute_url }}">{{ studio.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no studios in the library.</p>
+  {% endif %}
+{% endblock %}
