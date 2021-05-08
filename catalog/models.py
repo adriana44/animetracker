@@ -5,7 +5,7 @@ from django.urls import reverse
 
 class Genre(models.Model):
     """Model representing anime genre."""
-    name = models.CharField(max_length=200, help_text='Enter an anime genre (e.g. Shounen)')
+    name = models.CharField(max_length=200, unique=True)
 
     class Meta:
         ordering = ['name']
@@ -17,11 +17,18 @@ class Genre(models.Model):
 
 class Season(models.Model):
     """Model representing a season."""
-    season = models.CharField(max_length=10)
+    season = models.CharField(  # NEW
+        max_length=6,
+        choices=[
+            ('Winter', 'Winter'),
+            ('Spring', 'Spring'),
+            ('Summer', 'Summer'),
+            ('Fall', 'Fall'),
+        ])
     year = models.IntegerField()
 
     class Meta:
-        ordering = ['year', 'season']
+        ordering = ['-year']
 
     def __str__(self):
         """String for representing the Model object."""
@@ -30,7 +37,7 @@ class Season(models.Model):
 
 class Studio(models.Model):
     """Model representing a studio."""
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
 
     class Meta:
         ordering = ['name']
@@ -46,23 +53,38 @@ class Studio(models.Model):
 
 class Anime(models.Model):
     """Model representing an anime."""
-    title = models.CharField(max_length=200)
-    # Foreign Key used because anime can only have one studio, but studios can have multiple anime
-    studio = models.ForeignKey(Studio, on_delete=models.SET_NULL, null=True)
-
-    synopsis = models.TextField(max_length=2000, help_text='Enter a brief description of the anime')
-
-    # ManyToManyField used because genre can contain many anime. Anime can cover many genres.
-    genre = models.ManyToManyField(Genre, help_text='Select a genre for this anime')
-
-    # Added by Adriana
-    episodes = models.IntegerField()
-    starting_air_date = models.DateField()
-    season = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True)
-    currently_airing = models.BooleanField()
-    mal_url = models.URLField()
-
-    air_day = models.CharField(
+    # id is the mal_id field
+    mal_url = models.URLField()  # field url
+    image_url = models.URLField()
+    title = models.CharField(max_length=1000)
+    title_english = models.CharField(max_length=1000, null=True)
+    type = models.CharField(  # complete (pls check tho)
+        max_length=3,
+        choices=[
+            ('TV', 'TV'),
+            ('OVA', 'OVA'),
+            ('Mov', 'Movie'),
+            ('Sp', 'Special'),
+            ('ONA', 'ONA'),
+            ('Mus', 'Music'),
+        ])
+    source = models.TextField(max_length=50)
+    episodes = models.IntegerField(null=True)
+    status = models.CharField(
+        max_length=3,
+        choices=[
+            ('air', 'Currently Airing'),
+            ('fin', 'Finished Airing'),  # alias = complete, "Finished Airing"
+            ('tba', 'to_be_aired'),  # alias = tba, upcoming
+        ])
+    duration = models.TextField(max_length=100)
+    rating = models.TextField(max_length=300)  # e.g. PG-13
+    score = models.DecimalField(max_digits=4, decimal_places=2, null=True)
+    scored_by = models.IntegerField(null=True)
+    members = models.IntegerField()
+    synopsis = models.TextField(max_length=5000, null=True)
+    season = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True)  # premiered field
+    air_day = models.CharField(  # de luat din broadcast field
         max_length=3,
         choices=[
             ('Mon', 'Monday'),
@@ -74,6 +96,8 @@ class Anime(models.Model):
             ('Sun', 'Sunday'),
         ]
     )
+    studios = models.ManyToManyField(Studio)  # studios field
+    genres = models.ManyToManyField(Genre)
 
     class Meta:
         ordering = ['title']
@@ -87,8 +111,14 @@ class Anime(models.Model):
         return reverse('anime-detail', args=[str(self.id)])
 
     # Delete this shit later
-    def display_genre(self):
+    def display_genres(self):
         """Create a string for the Genre. This is required to display genre in Admin."""
-        return ', '.join(genre.name for genre in self.genre.all()[:3])
+        return ', '.join(genre.name for genre in self.genres.all()[:3])
 
-    display_genre.short_description = 'Genre'
+    display_genres.short_description = 'Genres'
+
+    def display_studios(self):
+        """Create a string for the Studio. This is required to display studios in Admin."""
+        return ', '.join(studio.name for studio in self.studios.all()[:3])
+
+    display_studios.short_description = 'Studios'

@@ -18,6 +18,6 @@ admin.site.register(Studio)
 
 @admin.register(Anime)
 class AnimeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'studio', 'display_genre')
-    list_filter = ('season', 'air_day', 'genre')
+    list_display = ('title', 'display_studios', 'display_genres')
+    list_filter = ('season', 'air_day', 'genres')
 

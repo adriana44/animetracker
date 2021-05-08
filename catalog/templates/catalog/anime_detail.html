@@ -3,11 +3,12 @@
 {% block content %}
   <h1>Title: {{ anime.title }}</h1>
 
-  <p><strong>Studio:</strong> <a href="{{ anime.studio.get_absolute_url }}">{{ anime.studio }}</a></p> <!-- studio detail link not yet defined -->
+ <!-- <p><strong>Studios:</strong> <a href="{{ anime.studios.get_absolute_url }}">{{ anime.studios }}</a></p>-->
+  <p><strong>Studios:</strong> {{ anime.studios.all|join:", " }}</p>
   <p><strong>Synopsis:</strong> {{ anime.synopsis }}</p>
-  <p><strong>Genre:</strong> {{ anime.genre.all|join:", " }}</p>
+  <p><strong>Genre:</strong> {{ anime.genres.all|join:", " }}</p>
   <p><strong>Episodes:</strong> {{ anime.episodes }}</p>
-  <p><strong>Starting Air Date:</strong> {{ anime.starting_air_date }}</p>
+  <p><strong>Starting Air Date:</strong> {{ anime.airing_start }}</p>
   <p><strong>Season:</strong> {{ anime.season }}</p>
   <p><strong>Currently Airing:</strong> {{ anime.currently_airing }}</p>
   <p><strong>Air Day:</strong> {{ anime.air_day }}</p>
