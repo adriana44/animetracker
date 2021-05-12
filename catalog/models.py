@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -13,6 +14,10 @@ class Genre(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return self.name
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular genre instance."""
+        return reverse('genre-detail', args=[str(self.id)])
 
 
 class Season(models.Model):
@@ -57,17 +62,8 @@ class Anime(models.Model):
     mal_url = models.URLField()  # field url
     image_url = models.URLField()
     title = models.CharField(max_length=1000)
-    title_english = models.CharField(max_length=1000, null=True)
-    type = models.CharField(  # complete (pls check tho)
-        max_length=3,
-        choices=[
-            ('TV', 'TV'),
-            ('OVA', 'OVA'),
-            ('Mov', 'Movie'),
-            ('Sp', 'Special'),
-            ('ONA', 'ONA'),
-            ('Mus', 'Music'),
-        ])
+    # title_english = models.CharField(max_length=1000, null=True)
+    type = models.TextField(max_length=50)
     source = models.TextField(max_length=50)
     episodes = models.IntegerField(null=True)
     status = models.CharField(
@@ -77,14 +73,14 @@ class Anime(models.Model):
             ('fin', 'Finished Airing'),  # alias = complete, "Finished Airing"
             ('tba', 'to_be_aired'),  # alias = tba, upcoming
         ])
-    duration = models.TextField(max_length=100)
-    rating = models.TextField(max_length=300)  # e.g. PG-13
+    # duration = models.TextField(max_length=100)
+    # rating = models.TextField(max_length=300)  # e.g. PG-13
     score = models.DecimalField(max_digits=4, decimal_places=2, null=True)
-    scored_by = models.IntegerField(null=True)
+    # scored_by = models.IntegerField(null=True)
     members = models.IntegerField()
     synopsis = models.TextField(max_length=5000, null=True)
     season = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True)  # premiered field
-    air_day = models.CharField(  # de luat din broadcast field
+    air_day = models.CharField(
         max_length=3,
         choices=[
             ('Mon', 'Monday'),
@@ -96,7 +92,7 @@ class Anime(models.Model):
             ('Sun', 'Sunday'),
         ]
     )
-    studios = models.ManyToManyField(Studio)  # studios field
+    studios = models.ManyToManyField(Studio)
     genres = models.ManyToManyField(Genre)
 
     class Meta:
@@ -111,14 +107,27 @@ class Anime(models.Model):
         return reverse('anime-detail', args=[str(self.id)])
 
     # Delete this shit later
-    def display_genres(self):
-        """Create a string for the Genre. This is required to display genre in Admin."""
-        return ', '.join(genre.name for genre in self.genres.all()[:3])
-
-    display_genres.short_description = 'Genres'
+    # def display_genres(self):
+    #     """Create a string for the Genre. This is required to display genre in Admin."""
+    #     return ', '.join(genre.name for genre in self.genres.all()[:3])
+    #
+    # display_genres.short_description = 'Genres'
 
     def display_studios(self):
         """Create a string for the Studio. This is required to display studios in Admin."""
-        return ', '.join(studio.name for studio in self.studios.all()[:3])
+        return ', '.join(studio.name for studio in self.studios.all())
 
     display_studios.short_description = 'Studios'
+
+
+class UserProfile(models.Model):
+    """Model representing a user profile."""
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    watchlist = models.ManyToManyField(Anime, blank=True)
+
+    class Meta:
+        ordering = ['user']
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.user.username

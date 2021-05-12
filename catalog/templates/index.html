@@ -7,8 +7,10 @@
   <p>The anime database has the following record counts:</p>
   <ul>
     <li><strong>Anime:</strong> {{ num_anime }}</li>
-    <li><strong>Seasonal anime:</strong> {{ num_seasonal_anime }}</li>
+    <li><strong>Anime first aired this season:</strong> {{ num_seasonal_anime }}</li>
     <li><strong>Studios:</strong> {{ num_studios }}</li>
     <li><strong>Genres:</strong> {{ num_genres }}</li>
   </ul>
+
+  <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
 {% endblock %}

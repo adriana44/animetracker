@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Genre, Season, Studio, Anime
+from .models import Genre, Season, Studio, Anime, UserProfile
 
 
 admin.site.register(Genre)
@@ -9,6 +9,7 @@ admin.site.register(Season)
 
 
 admin.site.register(Studio)
+admin.site.register(UserProfile)
 # admin.site.register(Anime)
 
 # @admin.register(Studio)
@@ -18,6 +19,6 @@ admin.site.register(Studio)
 
 @admin.register(Anime)
 class AnimeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'display_studios', 'display_genres')
-    list_filter = ('season', 'air_day', 'genres')
+    list_display = ('title', 'season', 'members')
+    list_filter = ('season', 'air_day', 'members', 'genres')
 

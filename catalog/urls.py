@@ -8,5 +8,12 @@ urlpatterns = [
     path('anime/<int:pk>', views.AnimeDetailView.as_view(), name='anime-detail'),
     path('studio/', views.StudioListView.as_view(), name='studios'),
     path('studio/<int:pk>', views.StudioDetailView.as_view(), name='studio-detail'),
-    path('testing/', views.fetch_anime, name='testing'),
+    path('genre/', views.GenreListView.as_view(), name='genres'),
+    path('genre/<int:pk>', views.GenreDetailView.as_view(), name='genre-detail'),
+    path('watchlist/', views.WatchlistListView.as_view(), name='my-watchlist'),
+    path('watchlist/add/<int:pk>', views.watchlist_add, name='watchlist-add'),
+    path('watchlist/remove/<int:pk>', views.watchlist_remove, name='watchlist-remove'),
+
+    # path('testing/', views.fetch_anime, name='testing'),
+    # path('testing/', views.populate_season, name='testing'),
 ]

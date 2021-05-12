@@ -1,8 +1,14 @@
-from django.shortcuts import render
-from catalog.models import Genre, Season, Studio, Anime
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
+
+from catalog.models import Genre, Season, Studio, Anime, UserProfile
 from django.views import generic
 import json
 import requests
+from django.contrib.auth.mixins import  LoginRequiredMixin
 
 
 def index(request):
@@ -13,12 +19,16 @@ def index(request):
     num_seasonal_anime = Anime.objects.filter(season__season='Spring', season__year=2021).count()
     num_studios = Studio.objects.count()
     num_genres = Genre.objects.count()
+    # Number of visits to this view, as counted in the session variable.
+    num_visits = request.session.get('num_visits', 1)
+    request.session['num_visits'] = num_visits + 1
 
     context = {
         'num_anime': num_anime,
         'num_seasonal_anime': num_seasonal_anime,
         'num_studios': num_studios,
         'num_genres': num_genres,
+        'num_visits': num_visits,
     }
 
     # Render the HTML template index.html with the data in the context variable
@@ -52,106 +62,178 @@ class StudioDetailView(generic.DetailView):
     template_name = 'catalog/studio_detail.html'
 
 
+class GenreListView(generic.ListView):
+    model = Genre
+    template_name = 'catalog/genre_list.html'
+
+
+class GenreDetailView(generic.DetailView):
+    model = Genre
+    template_name = 'catalog/genre_detail.html'
+
+
+class WatchlistListView(LoginRequiredMixin, generic.ListView):
+    """Generic class-based view listing anime on the current user's watchlist."""
+    model = UserProfile
+    template_name = 'catalog/watchlist_list_anime_user.html'
+    context_object_name = 'watchlist_list'
+    # paginate_by = 10
+
+    def get_queryset(self):
+        """Return the watchlist of the current user."""
+        return UserProfile.objects.get(user=self.request.user).watchlist.all()
+
+
+@login_required
+def watchlist_add(request, pk):
+    anime_to_save = get_object_or_404(Anime, pk=pk)
+
+    # Get the current user profile
+    user = UserProfile.objects.get(user=request.user)
+
+    # Get the current user's watchlist
+    watchlist = UserProfile.objects.get(user=request.user).watchlist.all()
+
+    # Check if the anime already exists in the user's watchlist
+    if not watchlist.filter(id=pk).exists():
+        # Add the item through the ManyToManyField (UserProfile => Watchlist)
+        user.watchlist.add(anime_to_save)
+
+    # Refresh the Anime List page
+    return AnimeListView.as_view()(request)
+
+
+@login_required
+def watchlist_remove(request, pk):
+    anime_to_rm = get_object_or_404(Anime, pk=pk)
+
+    # Get the current user profile
+    user = UserProfile.objects.get(user=request.user)
+
+    # Get the current user's watchlist
+    watchlist = UserProfile.objects.get(user=request.user).watchlist.all()
+
+    # Check if the anime exists in the user's watchlist
+    if watchlist.filter(id=pk).exists():
+        # Remove the anime
+        user.watchlist.remove(anime_to_rm)
+
+    # Refresh the watchlist page
+    return WatchlistListView.as_view()(request)
+
+
+def get_season(air_date: str) -> Season:
+    """Retrieves the season from a date."""
+    year = air_date[:4]
+
+    str_month = air_date[5:7]
+    month = int(str_month)
+
+    # Jan -> Mar
+    if month < 4:
+        season = 'Winter'
+    # Apr -> Jun
+    elif month < 7:
+        season = 'Spring'
+    # Jul -> Sep
+    elif month < 10:
+        season = 'Summer'
+    # Oct -> Dec
+    else:
+        season = 'Fall'
+
+    return Season(season=season, year=year)
+
+
 def fetch_anime(request):
+    """Updates the Anime database with the weekly schedule."""
+
+    # Get the current week's anime schedule
     schedule_response = requests.get("https://api.jikan.moe/v3/schedule")
 
-    # days_of_the_week = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-    days_of_the_week = ['sunday']
+    # Load the json file
+    week_json = json.loads(schedule_response.content.decode('utf-8'))
+
+    days_of_the_week = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+
+    # For each day of the week, create/update the respective anime entries
     for day in days_of_the_week:
-        day_json = json.loads(schedule_response.content.decode('utf-8'))[day]
+        day_json = week_json[day]
 
-        # day_json = day_json[24:36]
-        for anime_entry in day_json:
-            mal_id = anime_entry['mal_id']
-            anime_response = requests.get(f'http://api.jikan.moe/v3/anime/{mal_id}')
-    
-            anime = json.loads(anime_response.content.decode('utf-8'))
-    
-            mal_id = anime['mal_id']
-            mal_url = anime['url']
-            image_url = anime['image_url']
-            title = anime['title']
-            title_english = anime['title_english']
-            type_ = anime['type']
-            source = anime['source']
-            episodes = anime['episodes']
-    
-            a_status = anime['status']
-            if a_status == 'Currently Airing':
-                status = 'air'
-            elif a_status == 'Finished Airing' or a_status == 'Completed' or a_status == 'Complete':
-                status = 'fin'
-            else:
-                status = 'tba'
-    
-            duration = anime['duration']
-            rating = anime['rating']
-            score = anime['score']
-            scored_by = anime['scored_by']
-            members = anime['members']
-            synopsis = anime['synopsis']
-    
-            season = anime['premiered'].split()
-            season_season = season[0]
-            season_year = season[1]
-    
-            broadcast = anime['broadcast']
-            air_day = broadcast[:3]
-    
-            studio_list = []
-            for studio in anime['studios']:
-                studio_list.append(studio['name'])
-    
-            genre_list = []
-            for genre in anime['genres']:
-                genre_list.append(genre['name'])
+        for anime in day_json:
+            # Skip unpopular anime
+            if anime['members'] > 10000:
+                new_anime = Anime(mal_url=anime['url'],
+                                  title=anime['title'],
+                                  image_url=anime['image_url'],
+                                  synopsis=anime['synopsis'],
+                                  type=anime['type'],
+                                  episodes=anime['episodes'],
+                                  members=anime['members'],
+                                  source=anime['source'],
+                                  score=anime['score'],
 
-            # Create Anime object
-            new_anime = Anime(mal_url=mal_url,
-                              image_url=image_url,
-                              title=title,
-                              title_english=title_english,
-                              type=type_,
-                              source=source,
-                              episodes=episodes,
-                              status=status,  # issue
-                              duration=duration,
-                              rating=rating,
-                              score=score,
-                              scored_by=scored_by,
-                              members=members,
-                              synopsis=synopsis,
-                              air_day=air_day,
-                              )
+                                  air_day=day[:3].capitalize(),
+                                  status='air',
+                                  )
 
-            # Add anime's season
-            target_season = Season.objects.filter(season=season_season, year=season_year)
-            if target_season.exists():
-                new_anime.season = Season.objects.get(season=season_season, year=season_year)
-            else:
-                new_season = Season(season=season_season, year=season_year)
-                new_season.save()
-                new_anime.season = new_season
-
-            # Add anime's id
-            new_anime.id = mal_id
-
-            # Save anime to database
-            new_anime.save()
-
-            # Add anime's genres
-            for genre in genre_list:
-                target_genre = Genre.objects.get(name=genre)
-                new_anime.genres.add(target_genre)
-
-            # Add anime's studios
-            for studio in studio_list:
-                target_studio = Studio.objects.filter(name=studio)
-                if target_studio.exists():
-                    new_anime.studios.add(Studio.objects.get(name=studio))
+                # Turn anime['airing_start'] into Season
+                season = get_season(anime['airing_start'])
+                # Check if the season is already in the db
+                target_season = Season.objects.filter(season=season.season, year=season.year)
+                # If it is, assign it
+                if target_season.exists():
+                    new_anime.season = Season.objects.get(season=season.season, year=season.year)
+                # Otherwise, add it to the db and then assign it
                 else:
-                    new_studio = Studio(name=studio)
-                    new_studio.save()
-                    new_anime.studios.add(new_studio)
+                    new_season = Season(season=season.season, year=season.year)
+                    new_season.save()
+                    new_anime.season = new_season
+
+                # Add anime's id
+                new_anime.id = anime['mal_id']
+
+                # Save anime to db
+                # We have to save the Anime entry before adding the Genre and Studio fields
+                # because it needs to have an id for the many-to-many relationships
+                new_anime.save()
+
+                # Get list of studio names
+                studio_list = []
+                for studio in anime['producers']:
+                    studio_list.append(studio['name'])
+                # For each studio name in the list
+                for studio in studio_list:
+                    # Check whether the studio is already in the db
+                    target_studio = Studio.objects.filter(name=studio)
+                    # If so, assign it
+                    if target_studio.exists():
+                        new_anime.studios.add(Studio.objects.get(name=studio))
+                    # Otherwise, add it to the db then assign it
+                    else:
+                        new_studio = Studio(name=studio)
+                        new_studio.save()
+                        new_anime.studios.add(new_studio)
+
+                # Get list of genre names
+                genre_list = []
+                for genre in anime['genres']:
+                    genre_list.append(genre['name'])
+                # For each genre name in the list, assign the respective Genre object
+                for genre in genre_list:
+                    target_genre = Genre.objects.get(name=genre)
+                    new_anime.genres.add(target_genre)
+
+    return index(request)
+
+
+def populate_season(request):
+    """Populates the Season table with Winter 2000 -> Fall 2021."""
+
+    season_list = ['Winter', 'Spring', 'Summer', 'Fall']
+    for year in range(2000, 2022):
+        for season in season_list:
+            new_season = Season(season=season, year=year)
+            new_season.save()
 
     return index(request)

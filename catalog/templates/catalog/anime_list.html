@@ -6,7 +6,10 @@
   <ul>
     {% for anime in anime_list %}
       <li>
-        <a href="{{ anime.get_absolute_url }}">{{ anime.title }}</a> ({{anime.studios }})
+        <a href="{{ anime.get_absolute_url }}">{{ anime.title }}</a> ({{ anime.studios.all|join:", " }})
+        {% if user.is_authenticated %}
+          <a href="{% url 'watchlist-add' anime.id %}" role="button" class="btn btn-outline-secondary btn-sm">Add to Watchlist</a>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>

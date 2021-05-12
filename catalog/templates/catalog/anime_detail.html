@@ -1,16 +1,29 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Title: {{ anime.title }}</h1>
+  <h1>{{ anime.title }}</h1>
 
  <!-- <p><strong>Studios:</strong> <a href="{{ anime.studios.get_absolute_url }}">{{ anime.studios }}</a></p>-->
-  <p><strong>Studios:</strong> {{ anime.studios.all|join:", " }}</p>
+  <p><strong>MyAnimeList URL:</strong> <a href="{{ anime.mal_url }}">{{ anime.mal_url }}</a></p>
+  <!-- anime.image_url -->
   <p><strong>Synopsis:</strong> {{ anime.synopsis }}</p>
-  <p><strong>Genre:</strong> {{ anime.genres.all|join:", " }}</p>
+  <p><strong>Studios:</strong>
+    {% for studio in anime.studios.all %}
+        <a href="{{ studio.get_absolute_url }}">{{ studio.name }} </a>
+    {% endfor %}
+  </p>
+  <p><strong>Genres:</strong>
+    {% for genre in anime.genres.all %}
+      <a href="{{ genre.get_absolute_url }}">{{ genre.name }} </a>
+    {% endfor %}
+  </p>
+  <p><strong>Type:</strong> {{ anime.type }}</p>
+  <p><strong>Source:</strong> {{ anime.source }}</p>
   <p><strong>Episodes:</strong> {{ anime.episodes }}</p>
-  <p><strong>Starting Air Date:</strong> {{ anime.airing_start }}</p>
-  <p><strong>Season:</strong> {{ anime.season }}</p>
-  <p><strong>Currently Airing:</strong> {{ anime.currently_airing }}</p>
-  <p><strong>Air Day:</strong> {{ anime.air_day }}</p>
-  <p><strong>MyAnimeList url:</strong> {{ anime.mal_url }}</p>
+  <p><strong>Status:</strong> {{ anime.get_status_display }}</p>
+  <p><strong>MAL Score:</strong> {{ anime.score }}</p>
+  <p><strong>MAL Members:</strong> {{ anime.members }}</p>
+  <p><strong>Starting Season:</strong> {{ anime.season }}</p>
+  <p><strong>Air Day:</strong> {{ anime.get_air_day_display }}</p>
+
 {% endblock %}

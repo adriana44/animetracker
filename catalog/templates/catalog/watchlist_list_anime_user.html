@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Watchlist</h1>
+
+    {% if watchlist_list %}
+    <ul>
+
+      {% for anime in watchlist_list %}
+      <li>
+        <a href="{% url 'anime-detail' anime.pk %}">{{anime.title}}</a>
+        <a href="{% url 'watchlist-remove' anime.pk %}" role="button" class="btn btn-outline-secondary btn-sm">Remove from Watchlist</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no anime on your watchlist.</p>
+    {% endif %}
+{% endblock %}
