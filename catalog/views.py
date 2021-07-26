@@ -1,14 +1,15 @@
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
-from django.urls import reverse
-
-from catalog.models import Genre, Season, Studio, Anime, UserProfile
 from django.views import generic
+
 import json
 import requests
-from django.contrib.auth.mixins import  LoginRequiredMixin
+import re
+
+from bs4 import BeautifulSoup
+
+from catalog.models import Genre, Season, Studio, Anime, UserProfile, StreamingWebsite
 
 
 def index(request):
@@ -19,6 +20,7 @@ def index(request):
     num_seasonal_anime = Anime.objects.filter(season__season='Spring', season__year=2021).count()
     num_studios = Studio.objects.count()
     num_genres = Genre.objects.count()
+
     # Number of visits to this view, as counted in the session variable.
     num_visits = request.session.get('num_visits', 1)
     request.session['num_visits'] = num_visits + 1
@@ -96,7 +98,7 @@ def watchlist_add(request, pk):
 
     # Check if the anime already exists in the user's watchlist
     if not watchlist.filter(id=pk).exists():
-        # Add the item through the ManyToManyField (UserProfile => Watchlist)
+        # Add the item through the ManyToManyField (UserProfile => Anime)
         user.watchlist.add(anime_to_save)
 
     # Refresh the Anime List page
@@ -237,3 +239,134 @@ def populate_season(request):
             new_season.save()
 
     return index(request)
+
+
+def set_last_aired_episode(anime):
+    streaming_website_url = 'https://gogoanime.pe/'
+    # define the search query
+    search_query = anime.title.lower().replace(' ', '%20')
+    search_url = streaming_website_url + '/search.html?keyword=' + search_query
+
+    if search_url is not None:
+        print('Search url:', search_url)
+
+        # set the headers like we are a browser,
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh;'
+                          'Intel Mac OS X 10_10_1)'
+                          'AppleWebKit/537.36 (KHTML, like Gecko)'
+                          'Chrome/39.0.2171.95'
+                          'Safari/537.36'
+        }
+        # download the search results page
+        response = requests.get(search_url, headers=headers)
+        # parse the downloaded page and grab all text
+        soup = BeautifulSoup(response.text, "html.parser")
+        # get the relative url to the anime page
+        anime_link = soup.find('a', attrs={'href': re.compile("^/category")})
+        # add it to the website's url to obtain the anime's url
+        if anime_link is not None:
+            anime_url = streaming_website_url + anime_link.get('href')
+            print('Anime url:', anime_url)
+
+            # define the base url for specific episodes
+            base_episode_url = anime_url.replace('/category/', '') + '-episode-'
+            print('Base episode url: ', base_episode_url)
+
+            # starting from episode 1, check whether the page corresponding
+            # to that specific episode exists
+            # if it doesn't, update the last aired episode field
+            ep_number = 1
+            while True:
+                episode_url = f'{base_episode_url}{ep_number}'
+                print('Episode url: ', episode_url)
+                response = requests.get(episode_url, headers=headers)
+                soup = BeautifulSoup(response.text, "html.parser")
+                if soup.h1.text == '404':
+                    print('404 Page not found')
+                    # set last aired episode to i-1
+                    anime.last_aired_episode = ep_number - 1
+                    anime.save()
+                    break
+                ep_number = ep_number + 1
+        else:
+            print('Anime url not found')
+    else:
+        print('Invalid streaming website')
+
+
+def set_all_last_aired_episodes(request):
+    anime_list = Anime.objects.all()
+    for anime in anime_list.iterator():
+        set_last_aired_episode(anime)
+
+    # anime = Anime.objects.get(title='Fumetsu no Anata e')
+    # set_last_aired_episode(anime)
+
+    return index(request)
+
+
+# def check_anime(streaming_website_url, anime):
+#     """Checks whether a new episode of an anime appeared on the website."""
+#
+#     # define the search query
+#     if streaming_website_url == 'https://gogoanime.pe/':
+#         search_query = anime.title.lower().replace(' ', '%20')
+#         search_url = streaming_website_url + '/search.html?keyword=' + search_query
+#     else:
+#         search_url = None
+#
+#     if search_url is not None:
+#         print('Search url:', search_url)
+#
+#         # set the headers like we are a browser,
+#         headers = {
+#             'User-Agent': 'Mozilla/5.0 (Macintosh;'
+#                           'Intel Mac OS X 10_10_1)'
+#                           'AppleWebKit/537.36 (KHTML, like Gecko)'
+#                           'Chrome/39.0.2171.95'
+#                           'Safari/537.36'
+#         }
+#         # download the search results page
+#         response = requests.get(search_url, headers=headers)
+#         # parse the downloaded page and grab all text
+#         soup = BeautifulSoup(response.text, "html.parser")
+#         # get the relative url to the anime page
+#         anime_link = soup.find('a', attrs={'href': re.compile("^/category")})
+#         # add it to the website's url to obtain the anime's url
+#         if anime_link is not None:
+#             anime_url = streaming_website_url + anime_link.get('href')
+#             print('Anime url:', anime_url)
+#
+#             episode_url = anime_url + '-episode-1'
+#             response = requests.get(episode_url, headers=headers)
+#             soup = BeautifulSoup(response.text, "html.parser")
+#             if soup.title.text != 'Pages not found':
+#                 i = 2
+#                 while True:
+#                     episode_url = anime_url + '-episode-' + i
+#                     response = requests.get(episode_url, headers=headers)
+#                     soup = BeautifulSoup(response.text, "html.parser")
+#                     if soup.title.text == 'Pages not found':
+#                         # set last aired episode to i-1
+#                         anime.last_aired_episode = i - 1
+#                         break
+#                     i = i + 1
+#         else:
+#             print('Anime url not found')
+#     else:
+#         print('Invalid streaming website')
+#
+#
+# def check_new_episodes(request):
+#     # pk = streaming website id
+#     # gogoanime = 1
+#
+#     streaming_queryset = StreamingWebsite.objects.filter(id=pk)
+#
+#     if streaming_queryset.exists():
+#         # for anime in Anime.objects.all():
+#         #     check_anime(streaming_queryset[0].url, anime)
+#         check_anime(streaming_queryset[0].url, Anime.objects.get(title='Fumetsu no Anata e'))
+#
+#     return index(request)

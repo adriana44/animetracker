@@ -13,6 +13,9 @@ urlpatterns = [
     path('watchlist/', views.WatchlistListView.as_view(), name='my-watchlist'),
     path('watchlist/add/<int:pk>', views.watchlist_add, name='watchlist-add'),
     path('watchlist/remove/<int:pk>', views.watchlist_remove, name='watchlist-remove'),
+    # path('check-episodes/<int:pk>', views.check_new_episodes, name='check-episodes'),
+    path('fetch-anime/', views.fetch_anime, name='fetch-anime'),
+    path('set-all-last-aired-episodes/', views.set_all_last_aired_episodes, name='set-all-last-aired-episodes'),
 
     # path('testing/', views.fetch_anime, name='testing'),
     # path('testing/', views.populate_season, name='testing'),

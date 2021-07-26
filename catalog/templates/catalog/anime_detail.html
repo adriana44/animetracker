@@ -19,7 +19,9 @@
   </p>
   <p><strong>Type:</strong> {{ anime.type }}</p>
   <p><strong>Source:</strong> {{ anime.source }}</p>
-  <p><strong>Episodes:</strong> {{ anime.episodes }}</p>
+{#  <p><strong>Total Episodes:</strong> {{ anime.episodes }}</p>#}
+{#  <p><strong>Last Aired Episode:</strong> {{ anime.last_aired_episode }}</p>#}
+  <p><strong>Episodes:</strong> {{ anime.last_aired_episode }}/{{ anime.episodes }}</p>
   <p><strong>Status:</strong> {{ anime.get_status_display }}</p>
   <p><strong>MAL Score:</strong> {{ anime.score }}</p>
   <p><strong>MAL Members:</strong> {{ anime.members }}</p>

@@ -1,16 +1,14 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Genre, Season, Studio, Anime, UserProfile
+from .models import Genre, Season, Studio, Anime, UserProfile, StreamingWebsite
 
 
 admin.site.register(Genre)
 admin.site.register(Season)
-
-
 admin.site.register(Studio)
 admin.site.register(UserProfile)
-# admin.site.register(Anime)
+admin.site.register(StreamingWebsite)
 
 # @admin.register(Studio)
 # class StudioAdmin(admin.ModelAdmin):
