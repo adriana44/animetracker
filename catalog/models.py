@@ -63,8 +63,8 @@ class Anime(models.Model):
     title = models.CharField(max_length=1000)
     type = models.TextField(max_length=50)
     source = models.TextField(max_length=50)
-    episodes = models.IntegerField(null=True)
-    last_aired_episode = models.IntegerField(null=True)
+    episodes = models.IntegerField(null=True, blank=True)
+    last_aired_episode = models.IntegerField(null=True, blank=True)
     status = models.CharField(
         max_length=3,
         choices=[
@@ -72,9 +72,9 @@ class Anime(models.Model):
             ('fin', 'Finished Airing'),  # alias = complete, "Finished Airing"
             ('tba', 'to_be_aired'),  # alias = tba, upcoming
         ])
-    score = models.DecimalField(max_digits=4, decimal_places=2, null=True)
+    score = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
     members = models.IntegerField()
-    synopsis = models.TextField(max_length=5000, null=True)
+    synopsis = models.TextField(max_length=5000, null=True, blank=True)
     season = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True)
     air_day = models.CharField(
         max_length=3,
@@ -133,3 +133,7 @@ class UserProfile(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return self.user.username
+
+    # def get_watchlist(self):
+    #     """Returns a list containing the anime on the user's watchlist."""
+    #     return [anime for anime in self.watchlist.all()]

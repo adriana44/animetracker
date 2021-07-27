@@ -41,12 +41,24 @@ class AnimeListView(generic.ListView):
     model = Anime
     context_object_name = 'anime_list'
     template_name = 'catalog/anime_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AnimeListView, self).get_context_data(**kwargs)
+        context['watchlist'] = UserProfile.objects.get(user=self.request.user).watchlist.all()
+        return context
+
     # paginate_by = 2 # number of items to display on each page
     # Can access page 2 with the URL /catalog/anime/?page=2
 
     # def get_queryset(self):
     #     """Return the last 2 aired anime."""
     #     return Anime.objects.order_by('-starting_air_date')[:2]
+
+
+class AiringAnimeListView(generic.ListView):
+    model = Anime
+    context_object_name = 'anime_list'
+    template_name = 'catalog/airing_anime_list.html'
 
 
 class AnimeDetailView(generic.DetailView):
@@ -147,8 +159,8 @@ def get_season(air_date: str) -> Season:
     return Season(season=season, year=year)
 
 
-def fetch_anime(request):
-    """Updates the Anime database with the weekly schedule."""
+def update_anime_table(request):
+    """Updates the Anime table with the weekly schedule."""
 
     # Get the current week's anime schedule
     schedule_response = requests.get("https://api.jikan.moe/v3/schedule")
@@ -174,9 +186,8 @@ def fetch_anime(request):
                                   members=anime['members'],
                                   source=anime['source'],
                                   score=anime['score'],
-
-                                  air_day=day[:3].capitalize(),
                                   status='air',
+                                  air_day=day[:3].capitalize(),
                                   )
 
                 # Turn anime['airing_start'] into Season
@@ -241,7 +252,37 @@ def populate_season(request):
     return index(request)
 
 
+def episode_exists(headers, anime, base_episode_url, ep_number):
+    """Checks whether an episode of a certain anime has aired. Returns a boolean."""
+    episode_url = f'{base_episode_url}{ep_number}'
+    print('Episode url: ', episode_url)
+    response = requests.get(episode_url, headers=headers)
+    soup = BeautifulSoup(response.text, "html.parser")
+    if soup.h1.text == '404':
+        # check the url to the next episode
+        # (fixes the issue of having a combined episode e.g. 4-5
+        # with a single url to ep 4 and no url to ep 5)
+        ep_number = ep_number + 1
+        episode_url = f'{base_episode_url}{ep_number}'
+        print('Episode url: ', episode_url)
+        response = requests.get(episode_url, headers=headers)
+        soup = BeautifulSoup(response.text, "html.parser")
+        if soup.h1.text == '404':
+            print('404 Page not found')
+            # set the last aired episode field
+            if ep_number > 2:
+                anime.last_aired_episode = ep_number - 2
+                # update status if it's the last episode in the anime
+                if anime.episodes == anime.last_aired_episode:
+                    anime.status = 'fin'
+                anime.save()
+            return False
+    return True
+
+
 def set_last_aired_episode(anime):
+    """Sets the last aired episode field of an anime by checking which episodes
+    are available on gogoanime."""
     streaming_website_url = 'https://gogoanime.pe/'
     # define the search query
     search_query = anime.title.lower().replace(' ', '%20')
@@ -273,21 +314,15 @@ def set_last_aired_episode(anime):
             base_episode_url = anime_url.replace('/category/', '') + '-episode-'
             print('Base episode url: ', base_episode_url)
 
-            # starting from episode 1, check whether the page corresponding
-            # to that specific episode exists
+            # starting from the last episode we know of, or otherwise episode 1,
+            # check whether the page corresponding to that specific episode exists
             # if it doesn't, update the last aired episode field
-            ep_number = 1
-            while True:
-                episode_url = f'{base_episode_url}{ep_number}'
-                print('Episode url: ', episode_url)
-                response = requests.get(episode_url, headers=headers)
-                soup = BeautifulSoup(response.text, "html.parser")
-                if soup.h1.text == '404':
-                    print('404 Page not found')
-                    # set last aired episode to i-1
-                    anime.last_aired_episode = ep_number - 1
-                    anime.save()
-                    break
+            if anime.last_aired_episode is not None and anime.last_aired_episode != 0:
+                ep_number = anime.last_aired_episode
+            else:
+                ep_number = 1
+
+            while episode_exists(headers, anime, base_episode_url, ep_number):
                 ep_number = ep_number + 1
         else:
             print('Anime url not found')
@@ -296,77 +331,22 @@ def set_last_aired_episode(anime):
 
 
 def set_all_last_aired_episodes(request):
+    """Sets the last aired episode field for all anime in the database."""
     anime_list = Anime.objects.all()
     for anime in anime_list.iterator():
-        set_last_aired_episode(anime)
-
-    # anime = Anime.objects.get(title='Fumetsu no Anata e')
-    # set_last_aired_episode(anime)
+        # if the anime is not finished
+        if anime.status != 'fin':
+            set_last_aired_episode(anime)
 
     return index(request)
 
 
-# def check_anime(streaming_website_url, anime):
-#     """Checks whether a new episode of an anime appeared on the website."""
-#
-#     # define the search query
-#     if streaming_website_url == 'https://gogoanime.pe/':
-#         search_query = anime.title.lower().replace(' ', '%20')
-#         search_url = streaming_website_url + '/search.html?keyword=' + search_query
-#     else:
-#         search_url = None
-#
-#     if search_url is not None:
-#         print('Search url:', search_url)
-#
-#         # set the headers like we are a browser,
-#         headers = {
-#             'User-Agent': 'Mozilla/5.0 (Macintosh;'
-#                           'Intel Mac OS X 10_10_1)'
-#                           'AppleWebKit/537.36 (KHTML, like Gecko)'
-#                           'Chrome/39.0.2171.95'
-#                           'Safari/537.36'
-#         }
-#         # download the search results page
-#         response = requests.get(search_url, headers=headers)
-#         # parse the downloaded page and grab all text
-#         soup = BeautifulSoup(response.text, "html.parser")
-#         # get the relative url to the anime page
-#         anime_link = soup.find('a', attrs={'href': re.compile("^/category")})
-#         # add it to the website's url to obtain the anime's url
-#         if anime_link is not None:
-#             anime_url = streaming_website_url + anime_link.get('href')
-#             print('Anime url:', anime_url)
-#
-#             episode_url = anime_url + '-episode-1'
-#             response = requests.get(episode_url, headers=headers)
-#             soup = BeautifulSoup(response.text, "html.parser")
-#             if soup.title.text != 'Pages not found':
-#                 i = 2
-#                 while True:
-#                     episode_url = anime_url + '-episode-' + i
-#                     response = requests.get(episode_url, headers=headers)
-#                     soup = BeautifulSoup(response.text, "html.parser")
-#                     if soup.title.text == 'Pages not found':
-#                         # set last aired episode to i-1
-#                         anime.last_aired_episode = i - 1
-#                         break
-#                     i = i + 1
-#         else:
-#             print('Anime url not found')
-#     else:
-#         print('Invalid streaming website')
-#
-#
-# def check_new_episodes(request):
-#     # pk = streaming website id
-#     # gogoanime = 1
-#
-#     streaming_queryset = StreamingWebsite.objects.filter(id=pk)
-#
-#     if streaming_queryset.exists():
-#         # for anime in Anime.objects.all():
-#         #     check_anime(streaming_queryset[0].url, anime)
-#         check_anime(streaming_queryset[0].url, Anime.objects.get(title='Fumetsu no Anata e'))
-#
-#     return index(request)
+def do_this_once(request):
+    # anime_list = Anime.objects.all()
+    # for anime in anime_list.iterator():
+    #     if anime.episodes is not None and anime.episodes == anime.last_aired_episode:
+    #         print(anime.title)
+    #         anime.status = 'fin'
+    #         anime.save()
+
+    return index(request)

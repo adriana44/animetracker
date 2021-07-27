@@ -17,6 +17,6 @@ admin.site.register(StreamingWebsite)
 
 @admin.register(Anime)
 class AnimeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'season', 'members')
-    list_filter = ('season', 'air_day', 'members', 'genres')
+    list_display = ('title', 'members', 'season', 'status')
+    list_filter = ('air_day', 'status', 'season')
 

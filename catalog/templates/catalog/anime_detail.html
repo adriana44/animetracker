@@ -3,10 +3,16 @@
 {% block content %}
   <h1>{{ anime.title }}</h1>
 
- <!-- <p><strong>Studios:</strong> <a href="{{ anime.studios.get_absolute_url }}">{{ anime.studios }}</a></p>-->
+  {{ anime.studios.get_absolute_url }}">{{ anime.studios }}</a></p>-->
   <p><strong>MyAnimeList URL:</strong> <a href="{{ anime.mal_url }}">{{ anime.mal_url }}</a></p>
   <!-- anime.image_url -->
-  <p><strong>Synopsis:</strong> {{ anime.synopsis }}</p>
+  <p><strong>Synopsis:</strong>
+    {% if anime.synopsis is not None %}
+      {{ anime.synopsis }}
+    {% else %}
+      N/A
+    {% endif %}
+  </p>
   <p><strong>Studios:</strong>
     {% for studio in anime.studios.all %}
         <a href="{{ studio.get_absolute_url }}">{{ studio.name }} </a>
@@ -19,13 +25,35 @@
   </p>
   <p><strong>Type:</strong> {{ anime.type }}</p>
   <p><strong>Source:</strong> {{ anime.source }}</p>
-{#  <p><strong>Total Episodes:</strong> {{ anime.episodes }}</p>#}
-{#  <p><strong>Last Aired Episode:</strong> {{ anime.last_aired_episode }}</p>#}
-  <p><strong>Episodes:</strong> {{ anime.last_aired_episode }}/{{ anime.episodes }}</p>
+  <p><strong>Episodes:</strong>
+    {% if anime.last_aired_episode is not None %}
+      {{ anime.last_aired_episode }}
+    {% else %}
+      ?
+    {% endif %}
+    /
+    {% if anime.episodes is not None %}
+      {{ anime.episodes }}
+    {% else %}
+      ?
+    {% endif %}
+  </p>
   <p><strong>Status:</strong> {{ anime.get_status_display }}</p>
-  <p><strong>MAL Score:</strong> {{ anime.score }}</p>
+  <p><strong>MAL Score:</strong>
+    {% if anime.score is not None %}
+      {{ anime.score }}
+    {% else %}
+      N/A
+    {% endif %}
+  </p>
   <p><strong>MAL Members:</strong> {{ anime.members }}</p>
-  <p><strong>Starting Season:</strong> {{ anime.season }}</p>
+  <p><strong>Starting Season:</strong>
+    {% if anime.season is not None %}
+      {{ anime.season }}
+    {% else %}
+      ?
+    {% endif %}
+  </p>
   <p><strong>Air Day:</strong> {{ anime.get_air_day_display }}</p>
 
 {% endblock %}
