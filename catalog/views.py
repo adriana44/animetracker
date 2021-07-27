@@ -17,7 +17,7 @@ def index(request):
 
     # Generate counts of some of the main objects
     num_anime = Anime.objects.count()
-    num_seasonal_anime = Anime.objects.filter(season__season='Spring', season__year=2021).count()
+    num_seasonal_anime = Anime.objects.filter(status='air').count()
     num_studios = Studio.objects.count()
     num_genres = Genre.objects.count()
 

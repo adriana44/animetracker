@@ -2,8 +2,6 @@
 
 {% block content %}
   <h1>{{ anime.title }}</h1>
-
-  {{ anime.studios.get_absolute_url }}">{{ anime.studios }}</a></p>-->
   <p><strong>MyAnimeList URL:</strong> <a href="{{ anime.mal_url }}">{{ anime.mal_url }}</a></p>
   <!-- anime.image_url -->
   <p><strong>Synopsis:</strong>
@@ -15,12 +13,14 @@
   </p>
   <p><strong>Studios:</strong>
     {% for studio in anime.studios.all %}
-        <a href="{{ studio.get_absolute_url }}">{{ studio.name }} </a>
+        <a href="{{ studio.get_absolute_url }}">{{ studio.name }}</a>
+        &emsp;
     {% endfor %}
   </p>
   <p><strong>Genres:</strong>
     {% for genre in anime.genres.all %}
-      <a href="{{ genre.get_absolute_url }}">{{ genre.name }} </a>
+      <a href="{{ genre.get_absolute_url }}">{{ genre.name }}</a>
+      &emsp;
     {% endfor %}
   </p>
   <p><strong>Type:</strong> {{ anime.type }}</p>

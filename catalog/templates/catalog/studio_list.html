@@ -5,9 +5,12 @@
   {% if studio_list %}
   <ul>
     {% for studio in studio_list %}
-      <li>
-        <a href="{{ studio.get_absolute_url }}">{{ studio.name }}</a>
-      </li>
+      {% if studio.anime_set.count != 0 %}
+        <li>
+          <a href="{{ studio.get_absolute_url }}">{{ studio.name }}</a>
+          ({{ studio.anime_set.count }})
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
   {% else %}
