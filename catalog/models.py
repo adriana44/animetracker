@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 
 class Genre(models.Model):
@@ -126,6 +128,7 @@ class UserProfile(models.Model):
     """Model representing a user profile."""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     watchlist = models.ManyToManyField(Anime, blank=True)
+    streaming_websites = models.ManyToManyField(StreamingWebsite, blank=True)
 
     class Meta:
         ordering = ['user']
@@ -133,6 +136,15 @@ class UserProfile(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return self.user.username
+
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            UserProfile.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.userprofile.save()
 
     # def get_watchlist(self):
     #     """Returns a list containing the anime on the user's watchlist."""

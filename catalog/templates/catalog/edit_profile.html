@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  {% load crispy_forms_filters %}
+  {% load crispy_forms_tags %}
+  {% load bootstrap4 %}
+
+  <form method="post" class="form">
+      {% csrf_token %}
+      {% bootstrap_form user_form %}
+      {% buttons %}
+          <button type="submit" class="btn btn-primary">Submit</button>
+      {% endbuttons %}
+  </form>
+{% endblock %}
