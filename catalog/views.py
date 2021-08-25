@@ -91,7 +91,7 @@ class GenreDetailView(generic.DetailView):
 class WatchlistListView(LoginRequiredMixin, generic.ListView):
     """Generic class-based view listing anime on the current user's watchlist."""
     model = UserProfile
-    template_name = 'catalog/watchlist_list_anime_user.html'
+    template_name = 'catalog/watchlist.html'
     context_object_name = 'watchlist_list'
     # paginate_by = 10
 
@@ -389,3 +389,7 @@ def edit_profile(request):
     }
 
     return render(request, 'catalog/edit_profile.html', context)
+
+
+def test(request):
+    return render(request, 'base.html')

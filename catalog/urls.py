@@ -16,7 +16,6 @@ urlpatterns = [
     path('watchlist/remove/<int:pk>', views.watchlist_remove, name='watchlist-remove'),
     path('set-all-last-aired-episodes/', views.set_all_last_aired_episodes, name='set-all-last-aired-episodes'),
     path('update-anime-table/', views.update_anime_table, name='update-anime-table'),
-
-    # path('testing/', views.do_this_once, name='testing'),
+    path('test/', views.test, name='test'),
 
 ]
