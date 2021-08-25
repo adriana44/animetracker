@@ -104,11 +104,9 @@ class Anime(models.Model):
         """Returns the url to access a detail record for this anime."""
         return reverse('anime-detail', args=[str(self.id)])
 
-    def display_studios(self):
-        """Create a string for the Studio. This is required to display studios in Admin."""
-        return ', '.join(studio.name for studio in self.studios.all())
-
-    display_studios.short_description = 'Studios'
+    def get_short_synopsis(self):
+        """Returns the first 255 characters of the synopsis."""
+        return self.synopsis[:255]
 
 
 class StreamingWebsite(models.Model):

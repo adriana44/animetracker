@@ -209,6 +209,9 @@ def update_anime_table(request):
                 # Add anime's id
                 new_anime.id = anime['mal_id']
 
+                # If anime was already in the db, save last aired episode
+                if Anime.objects.filter(id=new_anime.id).exists():
+                    new_anime.last_aired_episode = Anime.objects.get(id=new_anime.id).last_aired_episode
                 # Save anime to db
                 # We have to save the Anime entry before adding the Genre and Studio fields
                 # because it needs to have an id for the many-to-many relationships
@@ -328,6 +331,7 @@ def set_all_last_aired_episodes(request):
                 # if it doesn't, update the last aired episode field
                 if anime.last_aired_episode is not None and anime.last_aired_episode != 0:
                     ep_number = anime.last_aired_episode
+                    print("last aired: ", anime.last_aired_episode)
                 else:
                     ep_number = 1
 
@@ -392,4 +396,7 @@ def edit_profile(request):
 
 
 def test(request):
-    return render(request, 'base.html')
+    context = {
+        "anime_list": Anime.objects.all(),
+    }
+    return render(request, 'catalog/test.html', context)

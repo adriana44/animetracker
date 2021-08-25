@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block title %}
+  <title>{{ studio.name }}</title>
+{% endblock %}
+
 {% block content %}
   <h1>{{ studio.name }}</h1>
   {% if studio.anime_set.exists %}

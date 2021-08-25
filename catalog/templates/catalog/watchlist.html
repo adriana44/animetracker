@@ -1,18 +1,23 @@
 {% extends "base.html" %}
 
+{% block title %}
+  <title>Watchlist</title>
+{% endblock %}
+
 {% block content %}
     <h1>Watchlist</h1>
 
     {% if watchlist_list %}
-    <ul>
-
-      {% for anime in watchlist_list %}
-      <li>
-        <a href="{% url 'anime-detail' anime.pk %}">{{anime.title}}</a>
-        <a href="{% url 'watchlist-remove' anime.pk %}" role="button" class="btn btn-outline-secondary btn-sm">Remove from Watchlist</a>
-      </li>
-      {% endfor %}
-    </ul>
+    {% for anime in watchlist_list %}
+      <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
+        <div class="h-100">
+          <img src="{{ anime.image_url }}" class="card-img-top" alt="{{ anime.title }}" style="width: auto; height: 225px; object-fit: scale-down;">
+          <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'anime-detail' anime.pk %}">{{anime.title}}</a></h5>
+            <a href="{% url 'watchlist-remove' anime.pk %}" class="btn btn-danger">Remove from Watchlist</a>
+          </div>
+        </div>
+      </div>{% endfor %}
 
     {% else %}
       <p>There are no anime on your watchlist.</p>

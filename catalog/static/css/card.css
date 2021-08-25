@@ -1,0 +1,49 @@
+.card-container {
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;
+}
+
+.mycard {
+    display: grid;
+}
+
+.mycard .button {
+    align-self: end;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.mycard {
+    box-shadow: 0 1px 5px #555;
+    background-color: white;
+}
+
+.card__title {
+    font-size: 1.5rem;
+    padding: .5rem;
+    text-align: center;
+}
+
+.card__description {
+    font-size: .9rem;
+    padding: .5rem;
+    line-height: 1.6em;
+}
+
+.button {
+    display: block;
+    background-color: #fffd28;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    transition: .3s ease-out;
+}
+
+img {
+    max-width: 100%;
+}

@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block title %}
+  <title>{{ anime.title }}</title>
+{% endblock %}
+
 {% block content %}
   <h1>{{ anime.title }}</h1>
   <p><strong>MyAnimeList URL:</strong> <a href="{{ anime.mal_url }}">{{ anime.mal_url }}</a></p>
