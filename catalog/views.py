@@ -1,14 +1,19 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
+from django.http import HttpResponseRedirect, HttpResponse
+from django.views.decorators.http import require_POST
 
 import json
 import requests
 import re
 
 from bs4 import BeautifulSoup
+from notifications.models import Notification
+from notifications.signals import notify
 
 from catalog.models import Genre, Season, Studio, Anime, UserProfile, StreamingWebsite
 from catalog.forms import UserForm, UserProfileForm
@@ -98,45 +103,6 @@ class WatchlistListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         """Return the watchlist of the current user."""
         return UserProfile.objects.get(user=self.request.user).watchlist.all()
-
-
-@login_required
-def watchlist_add(request, pk):
-    anime_to_save = get_object_or_404(Anime, pk=pk)
-
-    # Get the current user profile
-    user = UserProfile.objects.get(user=request.user)
-
-    # Get the current user's watchlist
-    watchlist = UserProfile.objects.get(user=request.user).watchlist.all()
-
-    # Check if the anime already exists in the user's watchlist
-    if not watchlist.filter(id=pk).exists():
-        # Add the item through the ManyToManyField (UserProfile => Anime)
-        user.watchlist.add(anime_to_save)
-
-    # Load the watchlist page
-    return WatchlistListView.as_view()(request)
-
-
-@login_required
-def watchlist_remove(request, pk):
-
-    anime_to_rm = get_object_or_404(Anime, pk=pk)
-
-    # Get the current user profile
-    user = UserProfile.objects.get(user=request.user)
-
-    # Get the current user's watchlist
-    watchlist = UserProfile.objects.get(user=request.user).watchlist.all()
-
-    # Check if the anime exists in the user's watchlist
-    if watchlist.filter(id=pk).exists():
-        # Remove the anime
-        user.watchlist.remove(anime_to_rm)
-
-    # Load the watchlist page
-    return WatchlistListView.as_view()(request)
 
 
 @permission_required('catalog.anime.change', raise_exception=True)
@@ -351,20 +317,9 @@ def set_all_last_aired_episodes(request):
     return index(request)
 
 
-@permission_required('catalog.anime.change', raise_exception=True)
-def do_this_once(request):
-    # anime_list = Anime.objects.all()
-    # for anime in anime_list.iterator():
-    #     if anime.episodes is not None and anime.episodes == anime.last_aired_episode:
-    #         print(anime.title)
-    #         anime.status = 'fin'
-    #         anime.save()
-    print('OK')
-    return index(request)
-
-
 @login_required
 def user_page(request):
+    """View function for displaying a user's personal information."""
     user_form = UserForm(instance=request.user)
     user_profile_form = UserProfileForm(instance=request.user.userprofile)
     context = {
@@ -377,6 +332,7 @@ def user_page(request):
 
 @login_required
 def edit_profile(request):
+    """View function for profile editing form."""
     if request.method == "POST":
         user_form = UserForm(request.POST, instance=request.user)
         if user_form.is_valid():
@@ -395,8 +351,23 @@ def edit_profile(request):
     return render(request, 'catalog/edit_profile.html', context)
 
 
-def test(request):
-    context = {
-        "anime_list": Anime.objects.all(),
-    }
-    return render(request, 'catalog/test.html', context)
+@login_required
+@require_POST
+def update_watchlist(request):
+    """POST method for adding/removing anime to/from the user's watchlist."""
+    watchlist = request.user.userprofile.watchlist
+    anime_id = request.POST.get('anime_id', None)
+    anime = get_object_or_404(Anime, pk=anime_id)
+
+    # check whether the user already has this anime in their watchlist
+    if watchlist.filter(id=anime_id).exists():
+        # remove anime from watchlist
+        watchlist.remove(anime)
+        added = False
+    else:
+        # add anime to watchlist
+        watchlist.add(anime)
+        added = True
+
+    context = {'added': added, 'anime_id': anime_id}
+    return HttpResponse(json.dumps(context), content_type='application/json')

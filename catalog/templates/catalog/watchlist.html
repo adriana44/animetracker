@@ -1,25 +1,43 @@
 {% extends "base.html" %}
 
 {% block title %}
-  <title>Watchlist</title>
+  Watchlist
 {% endblock %}
 
 {% block content %}
     <h1>Watchlist</h1>
 
     {% if watchlist_list %}
-    {% for anime in watchlist_list %}
-      <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
-        <div class="h-100">
-          <img src="{{ anime.image_url }}" class="card-img-top" alt="{{ anime.title }}" style="width: auto; height: 225px; object-fit: scale-down;">
-          <div class="card-body">
-            <h5 class="card-title"><a href="{% url 'anime-detail' anime.pk %}">{{anime.title}}</a></h5>
-            <a href="{% url 'watchlist-remove' anime.pk %}" class="btn btn-danger">Remove from Watchlist</a>
+      {% for anime in watchlist_list %}
+        <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
+          <div class="h-100">
+            <img src="{{ anime.image_url }}" class="card-img-top" alt="{{ anime.title }}" style="width: auto; height: 225px; object-fit: scale-down;">
+            <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'anime-detail' anime.pk %}">{{anime.title}}</a></h5>
+              <button type="button" class="watchlist-remove" id="{{ anime.pk }}" style="background: red">Remove from watchlist</button>
+            </div>
           </div>
         </div>
-      </div>{% endfor %}
+      {% endfor %}
 
     {% else %}
       <p>There are no anime on your watchlist.</p>
     {% endif %}
+{% endblock %}
+
+{% block scripts %}
+  <!-- ajax for remove from watchlist buttons -->
+  <script>
+  $('.watchlist-remove').click(function(){
+      $.ajax({
+          type: "POST",
+          url: "{% url "update-watchlist" %}",
+          data: {'anime_id': $(this).attr('id'), 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+          dataType: "json",
+          success: function() {
+              location.reload();
+          },
+      });
+  })
+  </script>
 {% endblock %}

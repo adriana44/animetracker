@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
 from django.conf import settings
+from django.conf.urls import url
 from django.conf.urls.static import static
+import notifications.urls
 
 from catalog import views
 
@@ -29,6 +31,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/profile', views.user_page, name='user-page'),
     path('accounts/profile/edit', views.edit_profile, name='edit-profile'),
+    url('^inbox/notifications/', include(notifications.urls, namespace='notifications')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # Use static() to add url mapping to serve static files during development (only)

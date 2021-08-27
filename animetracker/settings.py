@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'catalog.apps.CatalogConfig',
     'crispy_forms',
     'bootstrap4',
+    'notifications',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

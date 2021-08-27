@@ -1,26 +1,9 @@
 {% extends "base.html" %}
 
-<title>Test</title>
+{% block title %}
+  Test
+{% endblock %}
 
 {% block content %}
-  <section class="card-container">
-    {% for anime in anime_list %}
-      <article class="mycard">
-        <header class="card__title">
-          <h4>{{ anime.title }}</h4>
-        </header>
-
-        <figure class="card__thumbnail">
-          <img src="{{ anime.image_url }}">
-        </figure>
-
-        <main class="card__description">
-          Synopsis Synopsis Synopsis Synopsis Synopsis Synopsis Synopsis Synopsis Synopsis Synopsis Synopsis Synopsis Synopsis Synopsis Synopsis Synopsis Synopsis Synopsis
-        </main>
-
-        <a href="#" class="button">button</a>
-      </article>
-    {% endfor %}
-  </section>
 
 {% endblock %}

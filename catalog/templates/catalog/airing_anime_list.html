@@ -1,29 +1,14 @@
 {% extends "base.html" %}
 
-{% block content %}
-  <h1>Currently Airing Anime</h1>
-  {% if anime_list %}
-    {% for anime in anime_list %}
-      {% if anime.status == 'air' %}
-        <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
-          <div class="h-100">
-            <img src="{{ anime.image_url }}" class="card-img-top" alt="{{ anime.title }}" style="width: auto; height: 225px; object-fit: scale-down;">
-            <div class="card-body">
-              <h5 class="card-title"><a href="{% url 'anime-detail' anime.pk %}">{{anime.title}}</a></h5>
-              {% if user.is_authenticated %}
-                {% if anime in user.userprofile.watchlist.all %}
-                  <a href="{% url 'watchlist-remove' anime.pk %}" class="btn btn-danger">Remove from Watchlist</a>
-                {% else %}
-                  <a href="{% url 'watchlist-add' anime.pk %}" class="btn btn-success">Add to Watchlist</a>
-                {%  endif %}
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      {% endif %}
-    {% endfor %}
+{% block title %}
+  Currently Airing Anime
+{% endblock %}
 
-  {% else %}
-    <p>There are no currently airing anime in the database.</p>
-  {% endif %}
+{% block css %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/card.css' %}">
+{% endblock %}
+
+{% block content %}
+
 {% endblock %}
