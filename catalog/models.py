@@ -147,3 +147,4 @@ class UserProfile(models.Model):
     # def get_watchlist(self):
     #     """Returns a list containing the anime on the user's watchlist."""
     #     return [anime for anime in self.watchlist.all()]
+

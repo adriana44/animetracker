@@ -48,9 +48,9 @@
       <div class="clickable-dropdown">
         <button onclick="toggle_content()" class="clickable-dropbtn">
           <i class="fas fa-bell"></i>
-          {% if live_unread_count != 0 %}
+{#          {% if live_unread_count != 0 %}#}
             <span class="badge">{{ live_unread_count }}</span>
-          {% endif %}
+{#          {% endif %}#}
         </button>
 
         <div id="notificationsDropdown" class="clickable-dropdown-content">
@@ -97,6 +97,8 @@
             dataType: "json",
             success: function() {
                 $(this).css("color", "grey");
+                let selector = document.getElementsByClassName("badge");
+                $(selector).html("0");
             },
         });
     })

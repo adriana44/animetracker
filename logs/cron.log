@@ -1,0 +1,1234 @@
+second job
+
+second job
+
+second job
+
+Traceback (most recent call last):
+  File "/home/adriana/Documents/Licenta/animetracker/manage.py", line 22, in <module>
+    main()
+  File "/home/adriana/Documents/Licenta/animetracker/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/__init__.py", line 401, in execute_from_command_line
+    utility.execute()
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/__init__.py", line 395, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/base.py", line 330, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/base.py", line 371, in execute
+    output = self.handle(*args, **options)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/management/commands/crontab.py", line 29, in handle
+    Crontab().run_job(options['jobhash'])
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/crontab.py", line 143, in run_job
+    func = getattr(module, function_name)
+AttributeError: module 'catalog.cron' has no attribute 'scheduled_job'
+second job
+
+Traceback (most recent call last):
+  File "/home/adriana/Documents/Licenta/animetracker/manage.py", line 22, in <module>
+    main()
+  File "/home/adriana/Documents/Licenta/animetracker/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/__init__.py", line 401, in execute_from_command_line
+    utility.execute()
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/__init__.py", line 395, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/base.py", line 330, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/base.py", line 371, in execute
+    output = self.handle(*args, **options)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/management/commands/crontab.py", line 29, in handle
+    Crontab().run_job(options['jobhash'])
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/crontab.py", line 143, in run_job
+    func = getattr(module, function_name)
+AttributeError: module 'catalog.cron' has no attribute 'scheduled_job'
+second job
+
+second job
+
+Traceback (most recent call last):
+  File "/home/adriana/Documents/Licenta/animetracker/manage.py", line 22, in <module>
+    main()
+  File "/home/adriana/Documents/Licenta/animetracker/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/__init__.py", line 401, in execute_from_command_line
+    utility.execute()
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/__init__.py", line 395, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/base.py", line 330, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/base.py", line 371, in execute
+    output = self.handle(*args, **options)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/management/commands/crontab.py", line 29, in handle
+    Crontab().run_job(options['jobhash'])
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/crontab.py", line 143, in run_job
+    func = getattr(module, function_name)
+AttributeError: module 'catalog.cron' has no attribute 'scheduled_job'
+Traceback (most recent call last):
+  File "/home/adriana/Documents/Licenta/animetracker/manage.py", line 22, in <module>
+    main()
+  File "/home/adriana/Documents/Licenta/animetracker/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/__init__.py", line 401, in execute_from_command_line
+    utility.execute()
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/__init__.py", line 395, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/base.py", line 330, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/base.py", line 371, in execute
+    output = self.handle(*args, **options)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/management/commands/crontab.py", line 29, in handle
+    Crontab().run_job(options['jobhash'])
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/crontab.py", line 126, in run_job
+    job = self.__get_job_by_hash(job_hash)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/crontab.py", line 171, in __get_job_by_hash
+    raise RuntimeError(
+RuntimeError: No job with hash d116b79dd124873c9538e6947100249c found. It seems the crontab is out of sync with your settings.CRONJOBS. Run "python manage.py crontab add" again to resolve this issue!
+second job
+
+second job
+
+second job
+
+second job
+
+second job
+
+second job
+
+second job
+
+second job
+
+second job
+
+Traceback (most recent call last):
+  File "/home/adriana/Documents/Licenta/animetracker/manage.py", line 22, in <module>
+    main()
+  File "/home/adriana/Documents/Licenta/animetracker/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/__init__.py", line 401, in execute_from_command_line
+    utility.execute()
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/__init__.py", line 395, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/base.py", line 330, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/base.py", line 371, in execute
+    output = self.handle(*args, **options)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/management/commands/crontab.py", line 29, in handle
+    Crontab().run_job(options['jobhash'])
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/crontab.py", line 142, in run_job
+    module = import_module(module_path)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/adriana/Documents/Licenta/animetracker/catalog/cron.py", line 242
+    for anime_id in weekly_schedule[datetime.datetime.now().strftime('%a')]
+                                                                          ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "/home/adriana/Documents/Licenta/animetracker/manage.py", line 22, in <module>
+    main()
+  File "/home/adriana/Documents/Licenta/animetracker/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/__init__.py", line 401, in execute_from_command_line
+    utility.execute()
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/__init__.py", line 395, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/base.py", line 330, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django/core/management/base.py", line 371, in execute
+    output = self.handle(*args, **options)
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/management/commands/crontab.py", line 29, in handle
+    Crontab().run_job(options['jobhash'])
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/crontab.py", line 142, in run_job
+    module = import_module(module_path)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/adriana/Documents/Licenta/animetracker/catalog/cron.py", line 242
+    for anime_id in weekly_schedule[datetime.datetime.now().strftime('%a')]
+                                                                          ^
+SyntaxError: invalid syntax
+second job
+
+second job
+
+second job
+
+22:23:02.079863
+second job
+
+Failed to complete cronjob at ('* * * * *', 'catalog.cron.update_anime_table', '>> /home/adriana/Documents/Licenta/animetracker/logs/cron.log')
+Traceback (most recent call last):
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/adriana/Documents/Licenta/animetracker/catalog/cron.py", line 133, in update_anime_table
+    weekly_schedule[new_anime.air_day].append(new_anime.pk)
+KeyError: 'Mon'
+22:24:02.285948
+second job
+
+Failed to complete cronjob at ('* * * * *', 'catalog.cron.update_anime_table', '>> /home/adriana/Documents/Licenta/animetracker/logs/cron.log')
+Traceback (most recent call last):
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/adriana/Documents/Licenta/animetracker/catalog/cron.py", line 133, in update_anime_table
+    weekly_schedule[new_anime.air_day].append(new_anime.pk)
+KeyError: 'Mon'
+22:25:02.398047
+second job
+
+22:26:01.631519
+second job
+
+22:27:02.109416
+second job
+
+22:28:02.071606
+second job
+
+22:29:02.222647
+second job
+
+22:30:01.723173
+second job
+
+22:31:02.238135
+second job
+
+22:32:01.821397
+second job
+
+Failed to complete cronjob at ('* * * * *', 'catalog.cron.check_todays_anime', '>> /home/adriana/Documents/Licenta/animetracker/logs/cron.log')
+Traceback (most recent call last):
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/adriana/Documents/Licenta/animetracker/catalog/cron.py", line 248, in check_todays_anime
+    with open('/data/weekly_schedule.json') as json_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/data/weekly_schedule.json'
+check todays anime
+22:33:02.452075
+second job
+
+Failed to complete cronjob at ('* * * * *', 'catalog.cron.check_todays_anime', '>> /home/adriana/Documents/Licenta/animetracker/logs/cron.log')
+Traceback (most recent call last):
+  File "/home/adriana/Documents/Licenta/VirtualEnv/licenta/lib/python3.8/site-packages/django_crontab/crontab.py", line 145, in run_job
+    func(*job_args, **job_kwargs)
+  File "/home/adriana/Documents/Licenta/animetracker/catalog/cron.py", line 248, in check_todays_anime
+    with open('/data/weekly_schedule.json') as json_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/data/weekly_schedule.json'
+check todays anime
+22:34:02.268493
+second job
+
+check todays anime
+opened file
+Search url: https://gogoanime.pe//search.html?keyword=boku%20no%20hero%20academia%205th%20season
+Anime url: https://gogoanime.pe//category/boku-no-hero-academia-5th-season
+Base episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-
+last aired:  21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-22
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-23
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=detective%20conan
+Anime url: https://gogoanime.pe//category/detective-conan
+Base episode url:  https://gogoanime.pe/detective-conan-episode-
+last aired:  1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1017
+Episode url:  https://gogoanime.pe/detective-conan-episode-1018
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=vanitas%20no%20karte
+Anime url: https://gogoanime.pe//category/vanitas-no-carte
+Base episode url:  https://gogoanime.pe/vanitas-no-carte-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-10
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=kanojo%20mo%20kanojo
+Anime url: https://gogoanime.pe//category/kanojo-mo-kanojo
+Base episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-10
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=bokutachi%20no%20remake
+Anime url: https://gogoanime.pe//category/bokutachi-no-remake
+Base episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-9
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mairimashita!%20iruma-kun%202nd%20season
+Anime url: https://gogoanime.pe//category/mairimashita-iruma-kun-2nd-season
+Base episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-
+last aired:  19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-20
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-21
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=otome%20game%20no%20hametsu%20flag%20shika%20nai%20akuyaku%20reijou%20ni%20tensei%20shiteshimatta...%20x
+Anime url: https://gogoanime.pe//category/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x
+Base episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-10
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mahouka%20koukou%20no%20yuutousei
+Anime url: https://gogoanime.pe//category/mahouka-koukou-no-yuutousei
+Base episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-10
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=100-man%20no%20inochi%20no%20ue%20ni%20ore%20wa%20tatteiru%202nd%20season
+Anime url: https://gogoanime.pe//category/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season
+Base episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-9
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=dragon%20quest:%20dai%20no%20daibouken%20(2020)
+Anime url: https://gogoanime.pe//category/dragon-quest-dai-no-daibouken-2020
+Base episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-
+last aired:  46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-47
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-48
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=blue%20reflection%20ray
+Anime url: https://gogoanime.pe//category/blue-reflex-ray
+Base episode url:  https://gogoanime.pe/blue-reflex-ray-episode-
+last aired:  11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-12
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-13
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=d_cide%20traumerei%20the%20animation
+Anime url: https://gogoanime.pe//category/d-cide-traumerei-the-animation
+Base episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-9
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=yu☆gi☆oh!:%20sevens
+Anime url: https://gogoanime.pe//category/yugioh-sevens
+Base episode url:  https://gogoanime.pe/yugioh-sevens-episode-
+last aired:  62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-63
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-64
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=ore,%20tsushima
+Anime url: https://gogoanime.pe//category/ore-tsushima
+Base episode url:  https://gogoanime.pe/ore-tsushima-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-9
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-10
+404 Page not found
+22:35:02.436727
+second job
+
+check todays anime
+opened file
+
+Search url: https://gogoanime.pe//search.html?keyword=boku%20no%20hero%20academia%205th%20season
+Anime url: https://gogoanime.pe//category/boku-no-hero-academia-5th-season
+Base episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-
+last aired:  21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-22
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-23
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=detective%20conan
+Anime url: https://gogoanime.pe//category/detective-conan
+Base episode url:  https://gogoanime.pe/detective-conan-episode-
+last aired:  1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1017
+Episode url:  https://gogoanime.pe/detective-conan-episode-1018
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=vanitas%20no%20karte
+Anime url: https://gogoanime.pe//category/vanitas-no-carte
+Base episode url:  https://gogoanime.pe/vanitas-no-carte-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-10
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=kanojo%20mo%20kanojo
+Anime url: https://gogoanime.pe//category/kanojo-mo-kanojo
+Base episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-10
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=bokutachi%20no%20remake
+Anime url: https://gogoanime.pe//category/bokutachi-no-remake
+Base episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-9
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mairimashita!%20iruma-kun%202nd%20season
+Anime url: https://gogoanime.pe//category/mairimashita-iruma-kun-2nd-season
+Base episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-
+last aired:  19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-20
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-21
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=otome%20game%20no%20hametsu%20flag%20shika%20nai%20akuyaku%20reijou%20ni%20tensei%20shiteshimatta...%20x
+Anime url: https://gogoanime.pe//category/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x
+Base episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-10
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mahouka%20koukou%20no%20yuutousei
+Anime url: https://gogoanime.pe//category/mahouka-koukou-no-yuutousei
+Base episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-10
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=100-man%20no%20inochi%20no%20ue%20ni%20ore%20wa%20tatteiru%202nd%20season
+Anime url: https://gogoanime.pe//category/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season
+Base episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-9
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=dragon%20quest:%20dai%20no%20daibouken%20(2020)
+Anime url: https://gogoanime.pe//category/dragon-quest-dai-no-daibouken-2020
+Base episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-
+last aired:  46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-47
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-48
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=blue%20reflection%20ray
+Anime url: https://gogoanime.pe//category/blue-reflex-ray
+Base episode url:  https://gogoanime.pe/blue-reflex-ray-episode-
+last aired:  11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-12
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-13
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=d_cide%20traumerei%20the%20animation
+Anime url: https://gogoanime.pe//category/d-cide-traumerei-the-animation
+Base episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-9
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=yu☆gi☆oh!:%20sevens
+Anime url: https://gogoanime.pe//category/yugioh-sevens
+Base episode url:  https://gogoanime.pe/yugioh-sevens-episode-
+last aired:  62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-63
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-64
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=ore,%20tsushima
+Anime url: https://gogoanime.pe//category/ore-tsushima
+Base episode url:  https://gogoanime.pe/ore-tsushima-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-9
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-10
+404 Page not found
+22:36:01.732923
+second job
+
+check todays anime
+opened file
+
+Search url: https://gogoanime.pe//search.html?keyword=boku%20no%20hero%20academia%205th%20season
+Anime url: https://gogoanime.pe//category/boku-no-hero-academia-5th-season
+Base episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-
+last aired:  21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-22
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-23
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=detective%20conan
+Anime url: https://gogoanime.pe//category/detective-conan
+Base episode url:  https://gogoanime.pe/detective-conan-episode-
+last aired:  1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1017
+Episode url:  https://gogoanime.pe/detective-conan-episode-1018
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=vanitas%20no%20karte
+Anime url: https://gogoanime.pe//category/vanitas-no-carte
+Base episode url:  https://gogoanime.pe/vanitas-no-carte-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-10
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=kanojo%20mo%20kanojo
+Anime url: https://gogoanime.pe//category/kanojo-mo-kanojo
+Base episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-10
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=bokutachi%20no%20remake
+Anime url: https://gogoanime.pe//category/bokutachi-no-remake
+Base episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-9
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mairimashita!%20iruma-kun%202nd%20season
+Anime url: https://gogoanime.pe//category/mairimashita-iruma-kun-2nd-season
+Base episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-
+last aired:  19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-20
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-21
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=otome%20game%20no%20hametsu%20flag%20shika%20nai%20akuyaku%20reijou%20ni%20tensei%20shiteshimatta...%20x
+Anime url: https://gogoanime.pe//category/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x
+Base episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-10
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mahouka%20koukou%20no%20yuutousei
+Anime url: https://gogoanime.pe//category/mahouka-koukou-no-yuutousei
+Base episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-10
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=100-man%20no%20inochi%20no%20ue%20ni%20ore%20wa%20tatteiru%202nd%20season
+Anime url: https://gogoanime.pe//category/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season
+Base episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-9
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=dragon%20quest:%20dai%20no%20daibouken%20(2020)
+Anime url: https://gogoanime.pe//category/dragon-quest-dai-no-daibouken-2020
+Base episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-
+last aired:  46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-47
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-48
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=blue%20reflection%20ray
+Anime url: https://gogoanime.pe//category/blue-reflex-ray
+Base episode url:  https://gogoanime.pe/blue-reflex-ray-episode-
+last aired:  11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-12
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-13
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=d_cide%20traumerei%20the%20animation
+Anime url: https://gogoanime.pe//category/d-cide-traumerei-the-animation
+Base episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-9
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=yu☆gi☆oh!:%20sevens
+Anime url: https://gogoanime.pe//category/yugioh-sevens
+Base episode url:  https://gogoanime.pe/yugioh-sevens-episode-
+last aired:  62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-63
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-64
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=ore,%20tsushima
+Anime url: https://gogoanime.pe//category/ore-tsushima
+Base episode url:  https://gogoanime.pe/ore-tsushima-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-9
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-10
+404 Page not found
+22:37:02.284098
+second job
+
+check todays anime
+opened file
+
+Search url: https://gogoanime.pe//search.html?keyword=boku%20no%20hero%20academia%205th%20season
+Anime url: https://gogoanime.pe//category/boku-no-hero-academia-5th-season
+Base episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-
+last aired:  21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-22
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-23
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=detective%20conan
+Anime url: https://gogoanime.pe//category/detective-conan
+Base episode url:  https://gogoanime.pe/detective-conan-episode-
+last aired:  1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1017
+Episode url:  https://gogoanime.pe/detective-conan-episode-1018
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=vanitas%20no%20karte
+Anime url: https://gogoanime.pe//category/vanitas-no-carte
+Base episode url:  https://gogoanime.pe/vanitas-no-carte-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-10
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=kanojo%20mo%20kanojo
+Anime url: https://gogoanime.pe//category/kanojo-mo-kanojo
+Base episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-10
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=bokutachi%20no%20remake
+Anime url: https://gogoanime.pe//category/bokutachi-no-remake
+Base episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-9
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mairimashita!%20iruma-kun%202nd%20season
+Anime url: https://gogoanime.pe//category/mairimashita-iruma-kun-2nd-season
+Base episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-
+last aired:  19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-20
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-21
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=otome%20game%20no%20hametsu%20flag%20shika%20nai%20akuyaku%20reijou%20ni%20tensei%20shiteshimatta...%20x
+Anime url: https://gogoanime.pe//category/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x
+Base episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-10
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mahouka%20koukou%20no%20yuutousei
+Anime url: https://gogoanime.pe//category/mahouka-koukou-no-yuutousei
+Base episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-10
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=100-man%20no%20inochi%20no%20ue%20ni%20ore%20wa%20tatteiru%202nd%20season
+Anime url: https://gogoanime.pe//category/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season
+Base episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-9
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=dragon%20quest:%20dai%20no%20daibouken%20(2020)
+Anime url: https://gogoanime.pe//category/dragon-quest-dai-no-daibouken-2020
+Base episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-
+last aired:  46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-47
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-48
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=blue%20reflection%20ray
+Anime url: https://gogoanime.pe//category/blue-reflex-ray
+Base episode url:  https://gogoanime.pe/blue-reflex-ray-episode-
+last aired:  11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-12
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-13
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=d_cide%20traumerei%20the%20animation
+Anime url: https://gogoanime.pe//category/d-cide-traumerei-the-animation
+Base episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-9
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=yu☆gi☆oh!:%20sevens
+Anime url: https://gogoanime.pe//category/yugioh-sevens
+Base episode url:  https://gogoanime.pe/yugioh-sevens-episode-
+last aired:  62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-63
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-64
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=ore,%20tsushima
+Anime url: https://gogoanime.pe//category/ore-tsushima
+Base episode url:  https://gogoanime.pe/ore-tsushima-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-9
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-10
+404 Page not found
+22:38:01.948623
+second job
+
+check todays anime
+opened file
+
+Search url: https://gogoanime.pe//search.html?keyword=boku%20no%20hero%20academia%205th%20season
+Anime url: https://gogoanime.pe//category/boku-no-hero-academia-5th-season
+Base episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-
+last aired:  21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-22
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-23
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=detective%20conan
+Anime url: https://gogoanime.pe//category/detective-conan
+Base episode url:  https://gogoanime.pe/detective-conan-episode-
+last aired:  1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1017
+Episode url:  https://gogoanime.pe/detective-conan-episode-1018
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=vanitas%20no%20karte
+Anime url: https://gogoanime.pe//category/vanitas-no-carte
+Base episode url:  https://gogoanime.pe/vanitas-no-carte-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-10
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=kanojo%20mo%20kanojo
+Anime url: https://gogoanime.pe//category/kanojo-mo-kanojo
+Base episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-10
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=bokutachi%20no%20remake
+Anime url: https://gogoanime.pe//category/bokutachi-no-remake
+Base episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-9
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mairimashita!%20iruma-kun%202nd%20season
+Anime url: https://gogoanime.pe//category/mairimashita-iruma-kun-2nd-season
+Base episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-
+last aired:  19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-20
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-21
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=otome%20game%20no%20hametsu%20flag%20shika%20nai%20akuyaku%20reijou%20ni%20tensei%20shiteshimatta...%20x
+Anime url: https://gogoanime.pe//category/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x
+Base episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-10
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mahouka%20koukou%20no%20yuutousei
+Anime url: https://gogoanime.pe//category/mahouka-koukou-no-yuutousei
+Base episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-10
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=100-man%20no%20inochi%20no%20ue%20ni%20ore%20wa%20tatteiru%202nd%20season
+Anime url: https://gogoanime.pe//category/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season
+Base episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-9
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=dragon%20quest:%20dai%20no%20daibouken%20(2020)
+Anime url: https://gogoanime.pe//category/dragon-quest-dai-no-daibouken-2020
+Base episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-
+last aired:  46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-47
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-48
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=blue%20reflection%20ray
+Anime url: https://gogoanime.pe//category/blue-reflex-ray
+Base episode url:  https://gogoanime.pe/blue-reflex-ray-episode-
+last aired:  11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-12
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-13
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=d_cide%20traumerei%20the%20animation
+Anime url: https://gogoanime.pe//category/d-cide-traumerei-the-animation
+Base episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-9
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=yu☆gi☆oh!:%20sevens
+Anime url: https://gogoanime.pe//category/yugioh-sevens
+Base episode url:  https://gogoanime.pe/yugioh-sevens-episode-
+last aired:  62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-63
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-64
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=ore,%20tsushima
+Anime url: https://gogoanime.pe//category/ore-tsushima
+Base episode url:  https://gogoanime.pe/ore-tsushima-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-9
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-10
+404 Page not found
+22:39:02.207301
+second job
+
+check todays anime
+opened file
+
+Search url: https://gogoanime.pe//search.html?keyword=boku%20no%20hero%20academia%205th%20season
+Anime url: https://gogoanime.pe//category/boku-no-hero-academia-5th-season
+Base episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-
+last aired:  21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-22
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-23
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=detective%20conan
+Anime url: https://gogoanime.pe//category/detective-conan
+Base episode url:  https://gogoanime.pe/detective-conan-episode-
+last aired:  1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1017
+Episode url:  https://gogoanime.pe/detective-conan-episode-1018
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=vanitas%20no%20karte
+Anime url: https://gogoanime.pe//category/vanitas-no-carte
+Base episode url:  https://gogoanime.pe/vanitas-no-carte-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-10
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=kanojo%20mo%20kanojo
+Anime url: https://gogoanime.pe//category/kanojo-mo-kanojo
+Base episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-10
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=bokutachi%20no%20remake
+Anime url: https://gogoanime.pe//category/bokutachi-no-remake
+Base episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-9
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mairimashita!%20iruma-kun%202nd%20season
+Anime url: https://gogoanime.pe//category/mairimashita-iruma-kun-2nd-season
+Base episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-
+last aired:  19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-20
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-21
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=otome%20game%20no%20hametsu%20flag%20shika%20nai%20akuyaku%20reijou%20ni%20tensei%20shiteshimatta...%20x
+Anime url: https://gogoanime.pe//category/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x
+Base episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-10
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mahouka%20koukou%20no%20yuutousei
+Anime url: https://gogoanime.pe//category/mahouka-koukou-no-yuutousei
+Base episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-10
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=100-man%20no%20inochi%20no%20ue%20ni%20ore%20wa%20tatteiru%202nd%20season
+Anime url: https://gogoanime.pe//category/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season
+Base episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-9
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=dragon%20quest:%20dai%20no%20daibouken%20(2020)
+Anime url: https://gogoanime.pe//category/dragon-quest-dai-no-daibouken-2020
+Base episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-
+last aired:  46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-47
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-48
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=blue%20reflection%20ray
+Anime url: https://gogoanime.pe//category/blue-reflex-ray
+Base episode url:  https://gogoanime.pe/blue-reflex-ray-episode-
+last aired:  11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-12
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-13
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=d_cide%20traumerei%20the%20animation
+Anime url: https://gogoanime.pe//category/d-cide-traumerei-the-animation
+Base episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-9
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=yu☆gi☆oh!:%20sevens
+Anime url: https://gogoanime.pe//category/yugioh-sevens
+Base episode url:  https://gogoanime.pe/yugioh-sevens-episode-
+last aired:  62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-63
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-64
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=ore,%20tsushima
+Anime url: https://gogoanime.pe//category/ore-tsushima
+Base episode url:  https://gogoanime.pe/ore-tsushima-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-9
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-10
+404 Page not found
+22:40:02.291633
+second job
+
+check todays anime
+opened file
+
+Search url: https://gogoanime.pe//search.html?keyword=boku%20no%20hero%20academia%205th%20season
+Anime url: https://gogoanime.pe//category/boku-no-hero-academia-5th-season
+Base episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-
+last aired:  21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-22
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-23
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=detective%20conan
+Anime url: https://gogoanime.pe//category/detective-conan
+Base episode url:  https://gogoanime.pe/detective-conan-episode-
+last aired:  1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1017
+Episode url:  https://gogoanime.pe/detective-conan-episode-1018
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=vanitas%20no%20karte
+Anime url: https://gogoanime.pe//category/vanitas-no-carte
+Base episode url:  https://gogoanime.pe/vanitas-no-carte-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-10
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=kanojo%20mo%20kanojo
+Anime url: https://gogoanime.pe//category/kanojo-mo-kanojo
+Base episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-10
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=bokutachi%20no%20remake
+Anime url: https://gogoanime.pe//category/bokutachi-no-remake
+Base episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-9
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mairimashita!%20iruma-kun%202nd%20season
+Anime url: https://gogoanime.pe//category/mairimashita-iruma-kun-2nd-season
+Base episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-
+last aired:  19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-20
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-21
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=otome%20game%20no%20hametsu%20flag%20shika%20nai%20akuyaku%20reijou%20ni%20tensei%20shiteshimatta...%20x
+Anime url: https://gogoanime.pe//category/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x
+Base episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-10
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mahouka%20koukou%20no%20yuutousei
+Anime url: https://gogoanime.pe//category/mahouka-koukou-no-yuutousei
+Base episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-10
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=100-man%20no%20inochi%20no%20ue%20ni%20ore%20wa%20tatteiru%202nd%20season
+Anime url: https://gogoanime.pe//category/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season
+Base episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-9
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=dragon%20quest:%20dai%20no%20daibouken%20(2020)
+Anime url: https://gogoanime.pe//category/dragon-quest-dai-no-daibouken-2020
+Base episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-
+last aired:  46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-47
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-48
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=blue%20reflection%20ray
+Anime url: https://gogoanime.pe//category/blue-reflex-ray
+Base episode url:  https://gogoanime.pe/blue-reflex-ray-episode-
+last aired:  11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-12
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-13
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=d_cide%20traumerei%20the%20animation
+Anime url: https://gogoanime.pe//category/d-cide-traumerei-the-animation
+Base episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-9
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=yu☆gi☆oh!:%20sevens
+Anime url: https://gogoanime.pe//category/yugioh-sevens
+Base episode url:  https://gogoanime.pe/yugioh-sevens-episode-
+last aired:  62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-63
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-64
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=ore,%20tsushima
+Anime url: https://gogoanime.pe//category/ore-tsushima
+Base episode url:  https://gogoanime.pe/ore-tsushima-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-9
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-10
+404 Page not found
+22:41:01.433115
+second job
+
+check todays anime
+opened file
+
+Search url: https://gogoanime.pe//search.html?keyword=boku%20no%20hero%20academia%205th%20season
+Anime url: https://gogoanime.pe//category/boku-no-hero-academia-5th-season
+Base episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-
+last aired:  21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-21
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-22
+Episode url:  https://gogoanime.pe/boku-no-hero-academia-5th-season-episode-23
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=detective%20conan
+Anime url: https://gogoanime.pe//category/detective-conan
+Base episode url:  https://gogoanime.pe/detective-conan-episode-
+last aired:  1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1016
+Episode url:  https://gogoanime.pe/detective-conan-episode-1017
+Episode url:  https://gogoanime.pe/detective-conan-episode-1018
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=vanitas%20no%20karte
+Anime url: https://gogoanime.pe//category/vanitas-no-carte
+Base episode url:  https://gogoanime.pe/vanitas-no-carte-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-9
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-10
+Episode url:  https://gogoanime.pe/vanitas-no-carte-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=kanojo%20mo%20kanojo
+Anime url: https://gogoanime.pe//category/kanojo-mo-kanojo
+Base episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-9
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-10
+Episode url:  https://gogoanime.pe/kanojo-mo-kanojo-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=bokutachi%20no%20remake
+Anime url: https://gogoanime.pe//category/bokutachi-no-remake
+Base episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-8
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-9
+Episode url:  https://gogoanime.pe/bokutachi-no-remake-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mairimashita!%20iruma-kun%202nd%20season
+Anime url: https://gogoanime.pe//category/mairimashita-iruma-kun-2nd-season
+Base episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-
+last aired:  19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-19
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-20
+Episode url:  https://gogoanime.pe/mairimashita-iruma-kun-2nd-season-episode-21
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=otome%20game%20no%20hametsu%20flag%20shika%20nai%20akuyaku%20reijou%20ni%20tensei%20shiteshimatta...%20x
+Anime url: https://gogoanime.pe//category/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x
+Base episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-9
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-10
+Episode url:  https://gogoanime.pe/otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-x-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=mahouka%20koukou%20no%20yuutousei
+Anime url: https://gogoanime.pe//category/mahouka-koukou-no-yuutousei
+Base episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-
+last aired:  9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-9
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-10
+Episode url:  https://gogoanime.pe/mahouka-koukou-no-yuutousei-episode-11
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=100-man%20no%20inochi%20no%20ue%20ni%20ore%20wa%20tatteiru%202nd%20season
+Anime url: https://gogoanime.pe//category/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season
+Base episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-8
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-9
+Episode url:  https://gogoanime.pe/100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-2nd-season-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=dragon%20quest:%20dai%20no%20daibouken%20(2020)
+Anime url: https://gogoanime.pe//category/dragon-quest-dai-no-daibouken-2020
+Base episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-
+last aired:  46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-46
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-47
+Episode url:  https://gogoanime.pe/dragon-quest-dai-no-daibouken-2020-episode-48
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=blue%20reflection%20ray
+Anime url: https://gogoanime.pe//category/blue-reflex-ray
+Base episode url:  https://gogoanime.pe/blue-reflex-ray-episode-
+last aired:  11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-11
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-12
+Episode url:  https://gogoanime.pe/blue-reflex-ray-episode-13
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=d_cide%20traumerei%20the%20animation
+Anime url: https://gogoanime.pe//category/d-cide-traumerei-the-animation
+Base episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-8
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-9
+Episode url:  https://gogoanime.pe/d-cide-traumerei-the-animation-episode-10
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=yu☆gi☆oh!:%20sevens
+Anime url: https://gogoanime.pe//category/yugioh-sevens
+Base episode url:  https://gogoanime.pe/yugioh-sevens-episode-
+last aired:  62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-62
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-63
+Episode url:  https://gogoanime.pe/yugioh-sevens-episode-64
+404 Page not found
+Search url: https://gogoanime.pe//search.html?keyword=ore,%20tsushima
+Anime url: https://gogoanime.pe//category/ore-tsushima
+Base episode url:  https://gogoanime.pe/ore-tsushima-episode-
+last aired:  8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-8
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-9
+Episode url:  https://gogoanime.pe/ore-tsushima-episode-10
+404 Page not found
+22:42:01.519751
+second job
+
+22:43:02.072358
+second job
+
+22:44:01.598575
+second job
+
+22:45:02.093266
+second job
+
+check todays anime
+
+22:46:02.128798
+second job
+
+22:47:01.714501
+second job
+
+22:48:02.261330
+second job
+
+22:49:01.738347
+second job
+
+22:50:02.227799
+second job
+
+22:50:02.228009
+check todays anime
+
+22:51:02.207455
+second job
+
+22:52:01.682796
+second job
+
+23:17:03.084040
+second job
+
+23:18:01.100995
+second job
+
+23:19:01.623571
+second job
+
+23:20:02.148735
+second job
+
+23:20:02.147482
+check todays anime
+
+23:21:01.456966
+second job
+

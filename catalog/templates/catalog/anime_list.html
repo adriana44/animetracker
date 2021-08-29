@@ -31,7 +31,7 @@
 
             {% if user.is_authenticated %}
               <!-- Check if user already has the anime in their watchlist -->
-              {% if anime in watchlist %}
+              {% if anime in user.userprofile.watchlist %}
                 <button type="button" class="update-watchlist" id="{{ anime.pk }}" style="background: red">Remove from watchlist</button>
               {% else %}
                 <button type="button" class="update-watchlist" id="{{ anime.pk }}" style="background: green">Add to watchlist</button>

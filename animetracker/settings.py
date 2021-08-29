@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ SECRET_KEY = 'l=n9x0$e3z46ss+8q%pg@mzy&$grt--y*%&tpa!@063-6)=)*1'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -43,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'bootstrap4',
     'notifications',
+    'django_crontab',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -77,7 +76,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'animetracker.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -87,7 +85,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -107,7 +104,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -121,7 +117,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -132,3 +127,17 @@ LOGIN_REDIRECT_URL = '/'
 
 # Log any email sent to the console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# log_dir = os.path.join(BASE_DIR, "logs/cron.log")
+log_dir = BASE_DIR / 'logs/cron.log'
+
+CRONJOBS = [
+    # syntax: 'min hr day month weekday(0-6)'
+    # run on Mondays at 00:01
+    ('1 0 * * 0', 'catalog.cron.update_anime_table', f'>> {log_dir}'),
+    # run every 5 min
+    ('*/5 * * * *', 'catalog.cron.check_todays_anime', f'>> {log_dir}'),
+    ('* * * * *', 'catalog.cron.second_job', f'>> {log_dir}'),
+]
+
+CRONTAB_COMMAND_SUFFIX = '2>&1'
