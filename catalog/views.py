@@ -1,21 +1,14 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponse
 from django.views.decorators.http import require_POST
 
 import json
-import requests
-import re
 
-from bs4 import BeautifulSoup
-from notifications.models import Notification
-from notifications.signals import notify
-
-from catalog.models import Genre, Season, Studio, Anime, UserProfile, StreamingWebsite
+from catalog.models import Genre, Season, Studio, Anime, UserProfile
 from catalog.forms import UserForm, UserProfileForm
 
 
@@ -40,7 +33,6 @@ def index(request):
         'num_visits': num_visits,
     }
 
-    # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
 
 
@@ -141,6 +133,27 @@ def edit_profile(request):
 
 
 @login_required
+def edit_preferences(request):
+    """View function for profile editing form."""
+    if request.method == "POST":
+        userprofile_form = UserProfileForm(request.POST, instance=request.user.userprofile)
+        if userprofile_form.is_valid():
+            userprofile_form.save()
+            messages.success(request, 'Your preferences were successfully updated!')
+        else:
+            messages.error(request, 'Unable to complete request')
+        return redirect(user_page)
+
+    userprofile_form = UserProfileForm(instance=request.user.userprofile)
+    context = {
+        "userprofile": request.user.userprofile,
+        "userprofile_form": userprofile_form,
+    }
+
+    return render(request, 'catalog/edit_preferences.html', context)
+
+
+@login_required
 @require_POST
 def update_watchlist(request):
     """POST method for adding/removing anime to/from the user's watchlist."""
@@ -158,5 +171,15 @@ def update_watchlist(request):
         watchlist.add(anime)
         added = True
 
-    context = {'added': added, 'anime_id': anime_id}
-    return HttpResponse(json.dumps(context), content_type='application/json')
+    return HttpResponse(json.dumps({'added': added}), content_type='application/json')
+
+
+@login_required
+def watchlist_remove(request, pk):
+    """View for removing an anime from a user's watchlist."""
+    watchlist = request.user.userprofile.watchlist
+    anime = get_object_or_404(Anime, pk=pk)
+    if watchlist.filter(id=pk).exists():
+        watchlist.remove(anime)
+
+    return render(request, 'catalog/user_profile.html')

@@ -31,6 +31,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/profile', views.user_page, name='user-page'),
     path('accounts/profile/edit', views.edit_profile, name='edit-profile'),
+    path('accounts/profile/edit-preferences', views.edit_preferences, name='edit-preferences'),
     url('^inbox/notifications/', include(notifications.urls, namespace='notifications')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

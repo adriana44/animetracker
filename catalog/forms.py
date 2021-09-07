@@ -11,4 +11,4 @@ class UserForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ('watchlist', 'streaming_websites')
+        fields = ('streaming_websites',)

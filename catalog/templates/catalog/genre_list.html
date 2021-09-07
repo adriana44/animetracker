@@ -1,23 +1,33 @@
 {% extends "base.html" %}
 
 {% block title %}
-  <title>Genres</title>
+  Genres
+{% endblock %}
+
+{% block css %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/card.css' %}">
 {% endblock %}
 
 {% block content %}
   <h1>Genre List</h1>
   {% if genre_list %}
-  <ul>
-    {% for genre in genre_list %}
-      {% if genre.anime_set.count != 0 %}
-        <li>
-          <a href="{{ genre.get_absolute_url }}">{{ genre.name }}</a>
-          ({{ genre.anime_set.count }})
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
+    <section class="card-container">
+      {% for genre in genre_list|dictsortreversed:'anime_set.count' %}
+        {% if genre.anime_set.count != 0 %}
+          <article class="mycard">
+            <header class="card__title">
+              <h5><a href="{{ genre.get_absolute_url }}">{{ genre.name }} ({{ genre.anime_set.count }})</a></h5>
+            </header>
+
+            <figure class="card__thumbnail">
+              <a href="{{ genre.get_absolute_url }}"><img src="{{ genre.anime_ordered_by_members.first.image_url}}" alt=""></a>
+            </figure>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </section>
   {% else %}
-    <p>There are no genres in pingu's database.</p>
+    <p>There are no genres in the Anime Tracker database.</p>
   {% endif %}
 {% endblock %}

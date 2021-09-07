@@ -1,20 +1,72 @@
 {% extends "base.html" %}
 
 {% block title %}
-  <title>{{ studio.name }}</title>
+  {{ studio.name }}
+{% endblock %}
+
+{% block css %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/card.css' %}">
 {% endblock %}
 
 {% block content %}
   <h1>{{ studio.name }}</h1>
   {% if studio.anime_set.exists %}
-    <ul>
+    <section class="card-container">
       {% for anime in studio.anime_set.all %}
-        <li>
-          <a href="{{ anime.get_absolute_url }}">{{ anime.title }}</a>
-        </li>
+        <article class="mycard">
+          <header class="card__title">
+            <h5><a href="{% url 'anime-detail' anime.pk %}">{{ anime.title }}</a></h5>
+          </header>
+
+          <figure class="card__thumbnail">
+            <a href="{% url 'anime-detail' anime.pk %}"><img src="{{ anime.image_url }}" alt=""></a>
+          </figure>
+
+          <main class="card__description">
+            {{ anime.get_short_synopsis }}
+            ...
+            <br><a href="{% url 'anime-detail' anime.pk %}">Read more</a>
+          </main>
+
+          <!-- Check whether the user is authenticated and the anime is airing -->
+          {% if user.is_authenticated and anime.status == 'air' %}
+            <!-- Check if user already has the anime in their watchlist -->
+            {% if anime in user.userprofile.watchlist %}
+              <button type="button" class="update-watchlist" id="{{ anime.pk }}" style="background: red">Remove from watchlist</button>
+            {% else %}
+              <button type="button" class="update-watchlist" id="{{ anime.pk }}" style="background: green">Add to watchlist</button>
+            {% endif %}
+          {% endif %}
+        </article>
       {% endfor %}
-    </ul>
+    </section>
   {% else %}
     <p>There are no anime from this studio in pingu's database.</p>
   {% endif %}
+{% endblock %}
+
+{% block scripts %}
+  <!-- ajax for update watchlist buttons -->
+  <script>
+  $('.update-watchlist').click(function(){
+      let self = this;
+      $.ajax({
+          type: "POST",
+          url: "{% url "update-watchlist" %}",
+          data: {'anime_id': $(this).attr('id'), 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+          dataType: "json",
+          success: function(response) {
+              if(response.added === true){
+                  $(self).css("background","red");
+                  $(self).html("Remove from watchlist");
+              }
+              else if(response.added === false){
+                  $(self).css("background","green");
+                  $(self).html("Add to watchlist");
+              }
+          },
+      });
+  })
+  </script>
 {% endblock %}

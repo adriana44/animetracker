@@ -20,6 +20,10 @@ class Genre(models.Model):
         """Returns the url to access a particular genre instance."""
         return reverse('genre-detail', args=[str(self.id)])
 
+    @property
+    def anime_ordered_by_members(self):
+        return self.anime_set.order_by('-members')
+
 
 class Season(models.Model):
     """Model representing a season."""
@@ -62,6 +66,7 @@ class Anime(models.Model):
     # id is the mal_id field
     mal_url = models.URLField()
     image_url = models.URLField()
+    latest_ep_url = models.URLField(blank=True)
     title = models.CharField(max_length=1000)
     type = models.TextField(max_length=50)
     source = models.TextField(max_length=50)
@@ -105,8 +110,8 @@ class Anime(models.Model):
         return reverse('anime-detail', args=[str(self.id)])
 
     def get_short_synopsis(self):
-        """Returns the first 255 characters of the synopsis."""
-        return self.synopsis[:255]
+        """Returns the first 128 characters of the synopsis."""
+        return self.synopsis[:128]
 
 
 class StreamingWebsite(models.Model):
@@ -143,8 +148,4 @@ class UserProfile(models.Model):
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
         instance.userprofile.save()
-
-    # def get_watchlist(self):
-    #     """Returns a list containing the anime on the user's watchlist."""
-    #     return [anime for anime in self.watchlist.all()]
 

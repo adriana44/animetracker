@@ -128,7 +128,6 @@ LOGIN_REDIRECT_URL = '/'
 # Log any email sent to the console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# log_dir = os.path.join(BASE_DIR, "logs/cron.log")
 log_dir = BASE_DIR / 'logs/cron.log'
 
 CRONJOBS = [
@@ -137,7 +136,7 @@ CRONJOBS = [
     ('1 0 * * 0', 'catalog.cron.update_anime_table', f'>> {log_dir}'),
     # run every 5 min
     ('*/5 * * * *', 'catalog.cron.check_todays_anime', f'>> {log_dir}'),
-    ('* * * * *', 'catalog.cron.second_job', f'>> {log_dir}'),
+    # ('* * * * *', 'catalog.cron.scheduled_job', f'>> {log_dir}'),
 ]
 
 CRONTAB_COMMAND_SUFFIX = '2>&1'

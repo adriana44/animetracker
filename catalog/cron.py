@@ -1,11 +1,5 @@
+from django.contrib.auth.models import User
 from django.db.models.functions import datetime
-# from django.contrib.auth.decorators import login_required, permission_required
-# from django.contrib.auth.mixins import LoginRequiredMixin
-# from django.contrib.auth.models import User
-# from django.shortcuts import render, get_object_or_404, redirect
-# from django.views import generic
-# from django.http import HttpResponseRedirect, HttpResponse
-# from django.views.decorators.http import require_POST
 
 import json
 import requests
@@ -21,7 +15,6 @@ from catalog.models import Genre, Season, Studio, Anime, UserProfile
 # once a week get the weekly schedule
 def update_anime_table():
     """Updates the Anime table with the weekly schedule."""
-
     print(datetime.datetime.now().time())
     print('update anime table\n')
 
@@ -46,15 +39,11 @@ def update_anime_table():
             date_season = 'Fall'
 
         return Season(season=date_season, year=year)
-
     # Get the current week's anime schedule
     schedule_response = requests.get("https://api.jikan.moe/v3/schedule")
-
     # Load the json file
     week_json = json.loads(schedule_response.content.decode('utf-8'))
-
     days_of_the_week = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-
     # Dictionary for storing this week's schedule
     weekly_schedule = {
         "Mon": [],
@@ -65,7 +54,6 @@ def update_anime_table():
         "Sat": [],
         "Sun": []
     }
-
     # For each day of the week, create/update the respective anime entries
     for day in days_of_the_week:
         day_json = week_json[day]
@@ -83,9 +71,7 @@ def update_anime_table():
                                   source=anime['source'],
                                   score=anime['score'],
                                   status='air',
-                                  air_day=day[:3].capitalize(),
-                                  )
-
+                                  air_day=day[:3].capitalize())
                 # Turn anime['airing_start'] into Season
                 season = get_season(anime['airing_start'])
                 # Check if the season is already in the db
@@ -101,7 +87,6 @@ def update_anime_table():
 
                 # Add anime's id
                 new_anime.id = anime['mal_id']
-
                 # If anime was already in the db, save last aired episode
                 if Anime.objects.filter(id=new_anime.id).exists():
                     new_anime.last_aired_episode = Anime.objects.get(id=new_anime.id).last_aired_episode
@@ -118,7 +103,7 @@ def update_anime_table():
                 for studio in studio_list:
                     # Check whether the studio is already in the db
                     target_studio = Studio.objects.filter(name=studio)
-                    # If so, assign it
+                    # If so, assign it to the anime's 'studios' field
                     if target_studio.exists():
                         new_anime.studios.add(Studio.objects.get(name=studio))
                     # Otherwise, add it to the db then assign it
@@ -157,7 +142,8 @@ def check_todays_anime():
     def check_for_new_episodes(anime):
         """Checks whether new episodes of the anime have been made available on gogoanime.
         In case a new episode is found, a notification is sent to all users who have
-        the anime in their watchlist."""
+        the anime in their watchlist. This also updates the last_aired_episode and
+        the latest_ep_url fields of the anime object."""
 
         def episode_exists(local_ep_number):
             """Checks whether the specified episode of the specified anime has aired.
@@ -177,9 +163,10 @@ def check_todays_anime():
                 _soup = BeautifulSoup(_response.text, "html.parser")
                 if _soup.h1.text == '404':
                     # print('404 Page not found')
-                    # set the last aired episode field
+                    # update the last_aired_episode and latest_ep_url fields
                     if local_ep_number > 2:
                         anime.last_aired_episode = local_ep_number - 2
+                        anime.latest_ep_url = f'{base_episode_url}{anime.last_aired_episode}'
                         # update status if it's the last episode in the anime
                         if anime.episodes == anime.last_aired_episode:
                             anime.status = 'fin'
@@ -189,7 +176,9 @@ def check_todays_anime():
 
         streaming_website_url = 'https://gogoanime.pe/'
         # define the search query (gogoanime-specific)
-        search_query = anime.title.lower().replace(' ', '%20')
+        search_query = re.sub(r'[^a-zA-Z0-9-]', '%20', anime.title.lower())
+        search_query = search_query.replace('%20%20', '%20')
+        # search_query = search_query.replace(' ', '%20')
         search_url = streaming_website_url + '/search.html?keyword=' + search_query
 
         if search_url is not None:
@@ -236,18 +225,24 @@ def check_todays_anime():
                 # compare with new last aired ep value to see if it changed
                 # if it did, notify all users who have the anime on their watchlist
                 if anime.last_aired_episode != prev_last_aired_episode:
+                    print(f'prev last aired ep = {prev_last_aired_episode}')
+                    print(f'current last aired ep = {anime.last_aired_episode}')
                     user_profiles = UserProfile.objects.filter(watchlist__pk=anime.pk)
+                    admin_user = User.objects.get(username='adriana')
                     for user_profile in user_profiles.iterator():
-                        notify.send(sender=user_profile.user,  # EDIT THIS
+                        notify.send(sender=admin_user,
                                     recipient=user_profile.user,
-                                    verb=f'Episode {anime.last_aired_episode} of {anime.title} just aired!')
+                                    verb=f'Episode {anime.last_aired_episode} of {anime.title} is now available!',
+                                    description=f'{anime.get_absolute_url()}')
             else:
-                print('Anime url not found')
+                print(f'{anime.title} Anime url not found')
+                print(f'search url: {search_url}\n')
         else:
             print('Invalid streaming website')
 
     current_dir = os.path.abspath(os.path.dirname(__file__))
     json_path = os.path.join(current_dir, 'data/weekly_schedule.json')
+
     with open(json_path) as json_file:
         weekly_schedule = json.load(json_file)
         today = datetime.datetime.now().strftime('%a')
@@ -255,6 +250,5 @@ def check_todays_anime():
             check_for_new_episodes(Anime.objects.get(pk=anime_id))
 
 
-def second_job():
-    print(datetime.datetime.now().time())
-    print('second job\n')
+def scheduled_job():
+    pass

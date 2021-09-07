@@ -1,23 +1,30 @@
 {% extends "base.html" %}
 
 {% block title %}
-  <title>Studios</title>
+  Studios
+{% endblock %}
+
+{% block css %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/card.css' %}">
 {% endblock %}
 
 {% block content %}
   <h1>Studio List</h1>
   {% if studio_list %}
-  <ul>
-    {% for studio in studio_list %}
-      {% if studio.anime_set.count != 0 %}
-        <li>
-          <a href="{{ studio.get_absolute_url }}">{{ studio.name }}</a>
-          ({{ studio.anime_set.count }})
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
+    <section class="card-container">
+      {% for studio in studio_list %}
+        {% if studio.anime_set.count != 0 %}
+          <article class="mycard">
+            <header class="card__title">
+              <h5><a href="{{ studio.get_absolute_url }}">{{ studio.name }} ({{ studio.anime_set.count }})</a></h5>
+            </header>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </section>
+
   {% else %}
-    <p>There are no studios in pingu's database.</p>
+    <p>There are no studios in the Anime Tracker database.</p>
   {% endif %}
 {% endblock %}
